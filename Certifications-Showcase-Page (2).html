@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industry-Leading Certifications - The dR India</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{primary:'#1A3E5F',secondary:'#C1440E'},borderRadius:{'none':'0px','sm':'8px',DEFAULT:'12px','md':'16px','lg':'20px','xl':'24px','2xl':'28px','3xl':'32px','full':'9999px','button':'12px'}}}}
+</script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+.hide-scrollbar::-webkit-scrollbar {
+display: none;
+}
+.hide-scrollbar {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+@keyframes float {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-10px); }
+}
+.animate-float { animation: float 3s ease-in-out infinite; }
+.floating-elements {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+pointer-events: none;
+z-index: 1;
+overflow: hidden;
+}
+.floating-element {
+position: absolute;
+opacity: 0.08;
+transition: transform 0.3s ease-out;
+}
+.floating-element i {
+font-size: 12rem;
+color: #1A3E5F;
+}
+.paint-brush {
+top: 15%;
+left: 5%;
+}
+.shield {
+top: 35%;
+right: 8%;
+}
+.tools {
+bottom: 35%;
+left: 12%;
+}
+.drop {
+bottom: 25%;
+right: 15%;
+}
+@font-face {
+font-family: 'agrandir-bold';
+src: url('https://public.readdy.ai/fonts/Agrandir/Agrandir-GrandHeavy.woff2') format('woff2');
+font-weight: bold;
+font-style: normal;
+font-display: swap;
+}
+body {
+font-family: 'Inter', sans-serif;
+color: #333;
+}
+h1, h2, h3, h4, .font-agrandir {
+font-family: 'agrandir-bold', sans-serif;
+letter-spacing: 0.025em;
+}
+.font-inter { font-family: 'Inter', sans-serif; }
+.bg-primary, .bg-secondary, [class*="bg-primary"], [class*="bg-secondary"] {
+transition: all 0.3s ease;
+}
+.bg-primary:hover, [class*="bg-primary"]:hover {
+box-shadow: 0 0 15px rgba(26, 62, 95, 0.5);
+transform: translateY(-1px);
+}
+.bg-secondary:hover, [class*="bg-secondary"]:hover {
+box-shadow: 0 0 15px rgba(193, 68, 14, 0.5);
+transform: translateY(-1px);
+}
+.border-primary:hover {
+box-shadow: 0 0 15px rgba(26, 62, 95, 0.3);
+transform: translateY(-1px);
+}
+.border-white:hover {
+box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+transform: translateY(-1px);
+}
+.bg-white:not(.cert-card):hover {
+box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+transform: translateY(-1px);
+}
+input:focus, textarea:focus {
+outline: none;
+border-color: #1A3E5F;
+}
+.custom-checkbox {
+appearance: none;
+-webkit-appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #1A3E5F;
+border-radius: 4px;
+outline: none;
+cursor: pointer;
+position: relative;
+}
+.custom-checkbox:checked {
+background-color: #1A3E5F;
+}
+.custom-checkbox:checked::after {
+content: '';
+position: absolute;
+top: 3px;
+left: 6px;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.cert-card {
+transition: all 0.3s ease;
+}
+.cert-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.cert-card.expanded {
+transform: translateY(0);
+}
+.verification-badge {
+transition: all 0.3s ease;
+}
+.verification-badge:hover {
+transform: scale(1.05);
+}
+.filter-button.active {
+background-color: #1A3E5F;
+color: white;
+}
+</style>
+</head>
+<body class="bg-white">
+<div class="floating-elements">
+<div class="floating-element paint-brush">
+<i class="ri-paint-brush-line"></i>
+</div>
+<div class="floating-element shield">
+<i class="ri-shield-star-line"></i>
+</div>
+<div class="floating-element tools">
+<i class="ri-tools-line"></i>
+</div>
+<div class="floating-element drop">
+<i class="ri-drop-line"></i>
+</div>
+</div>
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+<div class="container mx-auto px-4 py-3 flex items-center justify-between">
+<div class="flex items-center">
+<a href="MAIN-HOMEPAGE (2).html" class="text-3xl font-['Pacifico'] text-primary">dR India</a>
+</div>
+<nav class="hidden lg:flex items-center space-x-8">
+<a href="MAIN-HOMEPAGE (2).html" class="text-gray-800 font-medium relative group">
+<span class="relative z-10">Home</span>
+<span class="absolute inset-0 bg-gray-900 transform scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100 opacity-10"></span>
+</a>
+<a href="About-Our-Expert-Team (5).html" class="text-gray-800 font-medium relative group">
+<span class="relative z-10">About Us</span>
+<span class="absolute inset-0 bg-gray-900 transform scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100 opacity-10"></span>
+</a>
+<a href="Services-Offered-Page (1).html" class="text-gray-800 font-medium relative group">
+<span class="relative z-10">Services</span>
+<span class="absolute inset-0 bg-gray-900 transform scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100 opacity-10"></span>
+</a>
+<a href="MAIN-HOMEPAGE (2).html#projects" class="text-gray-800 font-medium relative group">
+<span class="relative z-10">Projects</span>
+<span class="absolute inset-0 bg-gray-900 transform scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100 opacity-10"></span>
+</a>
+<a href="Certifications-Showcase-Page (2).html" class="text-gray-800 font-medium relative group">
+<span class="relative z-10">Certifications</span>
+<span class="absolute inset-0 bg-gray-900 transform scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100 opacity-10"></span>
+</a>
+<a href="MAIN-HOMEPAGE (2).html#clients" class="text-gray-800 font-medium relative group">
+<span class="relative z-10">Clients</span>
+<span class="absolute inset-0 bg-gray-900 transform scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100 opacity-10"></span>
+</a>
+<a href="Contact-Us (3).html" class="text-gray-800 font-medium relative group">
+<span class="relative z-10">Contact</span>
+<span class="absolute inset-0 bg-gray-900 transform scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100 opacity-10"></span>
+</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button class="hidden md:flex items-center justify-center bg-white border border-gray-300 rounded-button px-4 py-2 text-gray-700 hover:bg-gray-50 whitespace-nowrap">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-search-line"></i>
+</div>
+Search
+</button>
+<a href="Contact-Us (3).html" class="bg-primary text-white rounded-button px-6 py-2 hover:bg-primary/90 transition-colors whitespace-nowrap inline-block text-center">
+Contact Us
+</a>
+<button class="lg:hidden w-10 h-10 flex items-center justify-center text-gray-700" id="mobile-menu-button">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-menu-line ri-xl"></i>
+</div>
+</button>
+</div>
+</div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="lg:hidden hidden bg-white border-t border-gray-100 shadow-lg">
+<div class="container mx-auto px-4 py-3">
+<nav class="flex flex-col space-y-3">
+<a href="MAIN-HOMEPAGE (2).html" class="text-gray-800 font-medium py-2 hover:text-primary transition-colors">Home</a>
+<a href="About-Our-Expert-Team (5).html" class="text-gray-800 font-medium py-2 hover:text-primary transition-colors">About Us</a>
+<a href="Services-Offered-Page (1).html" class="text-gray-800 font-medium py-2 hover:text-primary transition-colors">Services</a>
+<a href="MAIN-HOMEPAGE (2).html#projects" class="text-gray-800 font-medium py-2 hover:text-primary transition-colors">Projects</a>
+<a href="Certifications-Showcase-Page (2).html" class="text-gray-800 font-medium py-2 hover:text-primary transition-colors">Certifications</a>
+<a href="MAIN-HOMEPAGE (2).html#clients" class="text-gray-800 font-medium py-2 hover:text-primary transition-colors">Clients</a>
+<a href="Contact-Us (3).html" class="text-gray-800 font-medium py-2 hover:text-primary transition-colors">Contact</a>
+</nav>
+</div>
+</div>
+</header>
+<!-- Page Header -->
+<section class="pt-32 pb-16 bg-gradient-to-r from-primary/10 to-primary/5">
+<div class="container mx-auto px-4">
+<div class="max-w-3xl mx-auto text-center">
+<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Industry-Leading Certifications</h1>
+<p class="text-xl text-gray-600 mb-8">Our commitment to excellence is backed by internationally recognized certifications and standards</p>
+</div>
+</div>
+</section>
+<!-- Certification Benefits Section -->
+<section class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="max-w-3xl mx-auto text-center mb-12">
+<h2 class="text-3xl font-bold text-gray-900 mb-4">Our Certifications</h2>
+<p class="text-lg text-gray-600">Industry-recognized certifications and standards</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+<!-- ISO 9001 -->
+<div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow flex flex-col justify-between h-full">
+<div>
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+<div class="w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-shield-check-line ri-lg"></i>
+</div>
+</div>
+<h3 class="text-lg font-semibold text-gray-900 mb-2">ISO 9001:2015</h3>
+</div>
+<p class="text-sm text-gray-500 mt-2 font-medium">Quality Management System</p>
+</div>
+<!-- ISO 14001 -->
+<div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow flex flex-col justify-between h-full">
+<div>
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+<div class="w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-recycle-line ri-lg"></i>
+</div>
+</div>
+<h3 class="text-lg font-semibold text-gray-900 mb-2">ISO 14001:2015</h3>
+</div>
+<p class="text-sm text-gray-500 mt-2 font-medium">Environmental Management System</p>
+</div>
+<!-- ISO 45001 -->
+<div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow flex flex-col justify-between h-full">
+<div>
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+<div class="w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-heart-pulse-line ri-lg"></i>
+</div>
+</div>
+<h3 class="text-lg font-semibold text-gray-900 mb-2">ISO 45001:2018</h3>
+</div>
+<p class="text-sm text-gray-500 mt-2 font-medium">Occupational Health & Safety</p>
+</div>
+<!-- NACE -->
+<div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow flex flex-col justify-between h-full">
+<div>
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+<div class="w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-award-line ri-lg"></i>
+</div>
+</div>
+<h3 class="text-lg font-semibold text-gray-900 mb-2">NACE International</h3>
+</div>
+<p class="text-sm text-gray-500 mt-2 font-medium">Coating Inspector</p>
+</div>
+<!-- SSPC -->
+<div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow flex flex-col justify-between h-full">
+<div>
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+<div class="w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-bookmark-3-line ri-lg"></i>
+</div>
+</div>
+<h3 class="text-lg font-semibold text-gray-900 mb-2">SSPC</h3>
+</div>
+<p class="text-sm text-gray-500 mt-2 font-medium">Inspection & Quality Control</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-16 bg-primary">
+<div class="container mx-auto px-4 text-center">
+<h2 class="text-3xl font-bold text-white mb-6">Partner With a Certified Industry Leader</h2>
+<p class="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+Choose The dR India for your industrial coating and asset protection needs. Our certifications ensure that you receive the highest quality service that meets international standards.
+</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a href="Contact-Us (3).html" class="bg-white text-primary rounded-button px-8 py-3 font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">
+Contact Our Team
+</a>
+<a href="Services-Offered-Page (1).html" class="bg-transparent border-2 border-white text-white rounded-button px-8 py-3 font-medium hover:bg-white/10 transition-colors whitespace-nowrap">
+Explore Our Services
+</a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white pt-16 pb-8">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+<div>
+<a href="MAIN-HOMEPAGE (2).html" class="text-2xl font-bold font-inter text-white mb-4 inline-block tracking-wide">DR India</a>
+<p class="text-gray-400 mb-6">
+Protecting industrial infrastructure with precision since 1994. NACE certified, ISO 9001/14001/45001 compliant.
+</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-linkedin-fill"></i>
+</div>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-facebook-fill"></i>
+</div>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-twitter-x-fill"></i>
+</div>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-instagram-fill"></i>
+</div>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+<ul class="space-y-3">
+<li><a href="MAIN-HOMEPAGE (2).html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+<li><a href="About-Our-Expert-Team (5).html" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+<li><a href="Services-Offered-Page (1).html" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+<li><a href="MAIN-HOMEPAGE (2).html#projects" class="text-gray-400 hover:text-white transition-colors">Projects</a></li>
+<li><a href="Certifications-Showcase-Page (2).html" class="text-gray-400 hover:text-white transition-colors">Certifications</a></li>
+<li><a href="MAIN-HOMEPAGE (2).html#clients" class="text-gray-400 hover:text-white transition-colors">Clients</a></li>
+<li><a href="Contact-Us (3).html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Our Services</h4>
+<ul class="space-y-3">
+<li><a href="Services-Offered-Page (1).html" class="text-gray-400 hover:text-white transition-colors">Anti-Corrosive Painting</a></li>
+<li><a href="Services-Offered-Page (1).html" class="text-gray-400 hover:text-white transition-colors">Wet-Abrasive Blasting</a></li>
+<li><a href="Services-Offered-Page (1).html" class="text-gray-400 hover:text-white transition-colors">High-Performance Coating</a></li>
+<li><a href="Services-Offered-Page (1).html" class="text-gray-400 hover:text-white transition-colors">Acid Proof Lining</a></li>
+<li><a href="Services-Offered-Page (1).html" class="text-gray-400 hover:text-white transition-colors">Floor Coatings</a></li>
+<li><a href="Services-Offered-Page (1).html" class="text-gray-400 hover:text-white transition-colors">Metallizing (TSA)</a></li>
+<li><a href="Services-Offered-Page (1).html" class="text-gray-400 hover:text-white transition-colors">Corrosion Audits</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-500 text-sm mb-4 md:mb-0">
+&copy; 2025 The dR India. All rights reserved.
+</p>
+<div class="flex space-x-4">
+<a href="#" class="text-gray-500 text-sm hover:text-white transition-colors">Privacy Policy</a>
+<a href="#" class="text-gray-500 text-sm hover:text-white transition-colors">Terms of Service</a>
+<a href="#" class="text-gray-500 text-sm hover:text-white transition-colors">Cookie Policy</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- Scripts -->
+<script id="mobile-menu-script">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+const floatingElements = document.querySelectorAll('.floating-element');
+let lastScrollY = window.scrollY;
+window.addEventListener('scroll', () => {
+const currentScrollY = window.scrollY;
+const scrollDirection = currentScrollY > lastScrollY ? 1 : -1;
+floatingElements.forEach((element, index) => {
+const speed = 0.05 + (index * 0.02);
+const amplitude = 15 + (index * 5);
+const frequency = 0.001 + (index * 0.0005);
+const translateY = currentScrollY * speed;
+const translateX = Math.sin(currentScrollY * frequency) * amplitude;
+const rotation = Math.cos(currentScrollY * frequency) * 8;
+element.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotation}deg)`;
+});
+lastScrollY = currentScrollY;
+});
+if (mobileMenuButton && mobileMenu) {
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+});
+const mobileLinks = mobileMenu.querySelectorAll('a');
+mobileLinks.forEach(link => {
+link.addEventListener('click', function() {
+mobileMenu.classList.add('hidden');
+});
+});
+}
+});
+</script>
+<script id="certification-interaction-script">
+document.addEventListener('DOMContentLoaded', function() {
+// Expand/collapse certification details
+const expandButtons = document.querySelectorAll('.expand-btn');
+expandButtons.forEach(button => {
+button.addEventListener('click', function() {
+const card = this.closest('.cert-card');
+const details = card.querySelector('.cert-details');
+const icon = this.querySelector('i');
+details.classList.toggle('hidden');
+card.classList.toggle('expanded');
+if (details.classList.contains('hidden')) {
+icon.classList.remove('ri-arrow-up-s-line');
+icon.classList.add('ri-arrow-down-s-line');
+} else {
+icon.classList.remove('ri-arrow-down-s-line');
+icon.classList.add('ri-arrow-up-s-line');
+}
+});
+});
+// Filter certifications
+const filterButtons = document.querySelectorAll('.filter-button');
+const certCards = document.querySelectorAll('.cert-card');
+filterButtons.forEach(button => {
+button.addEventListener('click', function() {
+const filter = this.getAttribute('data-filter');
+// Update active button
+filterButtons.forEach(btn => btn.classList.remove('active'));
+this.classList.add('active');
+// Filter cards
+certCards.forEach(card => {
+if (filter === 'all' || card.getAttribute('data-category') === filter) {
+card.style.display = 'block';
+} else {
+card.style.display = 'none';
+}
+});
+});
+});
+});
+</script>
+</body>
+</html>

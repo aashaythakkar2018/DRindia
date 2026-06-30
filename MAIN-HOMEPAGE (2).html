@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The dR India - NextGen Painteam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<link href="https://use.typekit.net/[YOUR-KIT-CODE].css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>
+tailwind.config={
+theme:{
+extend:{
+colors:{
+primary:'#1A3E5F',
+secondary:'#C1440E'
+},
+fontFamily: {
+'agrandir': ['agrandir-bold', 'sans-serif'],
+'inter': ['Inter', 'sans-serif']
+},
+borderRadius:{
+'none':'0px',
+'sm':'8px',
+DEFAULT:'12px',
+'md':'16px',
+'lg':'20px',
+'xl':'24px',
+'2xl':'28px',
+'3xl':'32px',
+'full':'9999px',
+'button':'12px'
+}
+}
+}
+}
+</script>
+<style>
+/* Custom Cursor Styles */
+a, button, [role="button"], select, input[type="submit"], input[type="button"], .clickable {
+cursor: pointer;
+}
+:where([class^="ri-"])::before { content: "\f3c2"; }
+/* Fade In Animation */
+@keyframes fadeInUp {
+from {
+opacity: 0;
+transform: translateY(20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+.fade-in-element {
+opacity: 0;
+}
+.fade-in-element.visible {
+animation: fadeInUp 0.6s ease-out forwards;
+}
+/* Stagger children animations */
+.stagger-children > * {
+opacity: 0;
+}
+.stagger-children.visible > * {
+animation: fadeInUp 0.6s ease-out forwards;
+}
+.stagger-children.visible > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-children.visible > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-children.visible > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-children.visible > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-children.visible > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-children.visible > *:nth-child(6) { animation-delay: 0.6s; }
+@keyframes float-element {
+0%, 100% { transform: translate(0, 0) rotate(0deg); }
+25% { transform: translate(10px, -10px) rotate(5deg); }
+50% { transform: translate(0, -20px) rotate(0deg); }
+75% { transform: translate(-10px, -10px) rotate(-5deg); }
+}
+.floating-element {
+position: fixed;
+opacity: 0.15;
+pointer-events: none;
+z-index: 1;
+transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+color: #1A3E5F;
+filter: blur(1px);
+}
+.floating-element svg {
+width: 100%;
+height: 100%;
+}
+.floating-element.large {
+width: 180px;
+height: 180px;
+}
+.floating-element.medium {
+width: 120px;
+height: 120px;
+}
+.floating-element.small {
+width: 80px;
+height: 80px;
+}
+.floating-element svg {
+fill: currentColor;
+}
+@keyframes fade-in-up {
+0% {
+opacity: 0;
+transform: translateY(1rem);
+}
+100% {
+opacity: 1;
+transform: translateY(0);
+}
+}
+.animate-fade-in-up {
+animation: fade-in-up 0.3s ease-out forwards;
+}
+h1, h2, h3, h4 {
+font-family: 'proxima-nova', sans-serif;
+letter-spacing: 0.025em;
+}
+@keyframes float {
+0%, 100% {
+transform: translateY(0);
+}
+50% {
+transform: translateY(-10px);
+}
+}
+.animate-float {
+animation: float 3s ease-in-out infinite;
+}
+@font-face {
+font-family: 'agrandir-bold';
+src: url('https://public.readdy.ai/fonts/Agrandir/Agrandir-GrandHeavy.woff2') format('woff2');
+font-weight: bold;
+font-style: normal;
+font-display: swap;
+}
+@keyframes fadeInUp {
+0% {
+opacity: 0;
+transform: translateY(30px);
+}
+70% {
+transform: translateY(-10px);
+}
+100% {
+opacity: 1;
+transform: translateY(0);
+}
+}
+.animate-headline {
+opacity: 0;
+}
+.animate-headline.animated {
+animation: fadeInUp 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+/* Section background transitions */
+section {
+position: relative;
+z-index: 1;
+}
+section::before {
+content: '';
+position: fixed;
+inset: 0;
+z-index: -1;
+transition: opacity 800ms ease-in-out;
+opacity: 0;
+pointer-events: none;
+}
+section.active::before {
+opacity: 1;
+}
+#about::before {
+background: linear-gradient(135deg, #E8F5FF 0%, #F0F7FF 50%, #F8FBFF 100%);
+}
+#services::before {
+background: linear-gradient(135deg, #FFF0F0 0%, #FFF5F5 50%, #FFF9F9 100%);
+}
+#projects::before {
+background: linear-gradient(135deg, #F0FFF4 0%, #F5FFF7 50%, #F9FFFB 100%);
+}
+#certifications::before {
+background: linear-gradient(135deg, #FFF0FB 0%, #FFF5FC 50%, #FFF9FE 100%);
+}
+#contact::before {
+background: linear-gradient(135deg, #F0F7FF 0%, #F5FAFF 50%, #F9FCFF 100%);
+}
+.hero-section::before {
+background: linear-gradient(135deg, #F0F0FF 0%, #F5F5FF 50%, #F9F9FF 100%);
+}
+/* Button hover effects */
+.bg-primary, .bg-secondary, [class*="bg-primary"], [class*="bg-secondary"] {
+transition: all 0.3s ease;
+}
+.bg-primary:hover, [class*="bg-primary"]:hover {
+box-shadow: 0 0 15px rgba(26, 62, 95, 0.5);
+transform: translateY(-1px);
+}
+.bg-secondary:hover, [class*="bg-secondary"]:hover {
+box-shadow: 0 0 15px rgba(193, 68, 14, 0.5);
+transform: translateY(-1px);
+}
+.border-primary:hover {
+box-shadow: 0 0 15px rgba(26, 62, 95, 0.3);
+transform: translateY(-1px);
+}
+.border-white:hover {
+box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+transform: translateY(-1px);
+}
+body {
+font-family: 'Inter', sans-serif;
+color: #333;
+}
+/* Additional hover effects for white buttons */
+.bg-white:not(.stat-card):not(.service-card):hover {
+box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+transform: translateY(-1px);
+}
+h1, h2, h3, h4, .font-agrandir {
+font-family: 'agrandir-bold', sans-serif;
+letter-spacing: 0.025em;
+}
+.font-inter {
+font-family: 'Inter', sans-serif;
+}
+.hero-section {
+background-image: linear-gradient(to right, rgba(26, 62, 95, 0.9), rgba(26, 62, 95, 0.7), rgba(26, 62, 95, 0.5), rgba(26, 62, 95, 0.3), rgba(26, 62, 95, 0.1)), url('https://readdy.ai/api/search-image?query=industrial%2520painting%2520site%2520with%2520large%2520metal%2520structures%2520and%2520industrial%2520equipment%2520being%2520painted%2520by%2520professionals%2520in%2520safety%2520gear.%2520The%2520left%2520side%2520has%2520a%2520smooth%2520gradient%2520to%2520dark%2520blue%2520for%2520text%2520overlay.%2520Professional%2520industrial%2520scene%2520with%2520high%2520quality%2520finish&width=1920&height=800&seq=hero123&orientation=landscape');
+background-size: cover;
+background-position: center right;
+}
+.stat-card {
+transition: all 0.3s ease;
+}
+.stat-card:hover {
+transform: translateY(-5px);
+}
+.service-card {
+transition: all 0.3s ease;
+}
+.service-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+position: relative;
+z-index: 1;
+}
+.service-card:hover::after {
+content: '';
+position: absolute;
+inset: -2px;
+background: linear-gradient(45deg, #1A3E5F, #C1440E);
+z-index: -1;
+border-radius: inherit;
+opacity: 0.3;
+animation: borderGlow 1.5s ease-in-out infinite alternate;
+}
+@keyframes borderGlow {
+0% {
+opacity: 0.2;
+}
+100% {
+opacity: 0.4;
+}
+}
+.client-logo {
+filter: grayscale(100%);
+transition: all 0.3s ease;
+}
+.client-logo:hover {
+filter: grayscale(0%);
+}
+input:focus, textarea:focus {
+outline: none;
+border-color: #1A3E5F;
+}
+.custom-checkbox {
+appearance: none;
+-webkit-appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #1A3E5F;
+border-radius: 4px;
+outline: none;
+cursor: pointer;
+position: relative;
+}
+.custom-checkbox:checked {
+background-color: #1A3E5F;
+}
+.custom-checkbox:checked::after {
+content: '';
+position: absolute;
+top: 3px;
+left: 6px;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+</style>
+</head>
+<body class="bg-white relative overflow-x-hidden">
+<!-- Floating Background Elements -->
+<div class="floating-element large" style="top: 15%; left: 5%;">
+<svg viewBox="0 0 24 24"><path d="M19 2H5C3.89 2 3 2.89 3 4V20C3 21.11 3.89 22 5 22H19C20.11 22 21 21.11 21 20V4C21 2.89 20.11 2 19 2M19 20H5V4H19V20M17 6H7V8H17V6M17 10H7V12H17V10M13 14H7V16H13V14Z"/></svg>
+</div>
+<div class="floating-element medium" style="top: 45%; right: 8%;">
+<svg viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7V17C4 19.21 7.58 21 12 21S20 19.21 20 17V7C20 4.79 16.42 3 12 3M18 17C18 17.5 15.87 19 12 19S6 17.5 6 17V14.77C7.61 15.55 9.72 16 12 16S16.39 15.55 18 14.77V17M18 12.45C16.7 13.4 14.42 14 12 14C9.58 14 7.3 13.4 6 12.45V9.64C7.47 10.47 9.61 11 12 11C14.39 11 16.53 10.47 18 9.64V12.45M12 9C8.13 9 6 7.5 6 7S8.13 5 12 5C15.87 5 18 6.5 18 7S15.87 9 12 9Z"/></svg>
+</div>
+<div class="floating-element large" style="bottom: 20%; left: 10%;">
+<svg viewBox="0 0 24 24"><path d="M4 2H20C20.5523 2 21 2.44772 21 3V21C21 21.5523 20.5523 22 20 22H4C3.44772 22 3 21.5523 3 21V3C3 2.44772 3.44772 2 4 2ZM5 4V20H19V4H5ZM7 6H17V10H7V6ZM7 12H17V14H7V12ZM7 16H13V18H7V16Z"/></svg>
+</div>
+<div class="floating-element medium" style="top: 30%; right: 15%;">
+<svg viewBox="0 0 24 24"><path d="M12 3C14.21 3 16 4.79 16 7S14.21 11 12 11 8 9.21 8 7 9.79 3 12 3M16 13.54C16 14.6 15.72 17.07 13.81 19.83L13 15L13.94 13.12C13.32 13.05 12.67 13 12 13S10.68 13.05 10.06 13.12L11 15L10.19 19.83C8.28 17.07 8 14.6 8 13.54C5.61 14.24 4 15.5 4 17V21H20V17C20 15.5 18.4 14.24 16 13.54Z"/></svg>
+</div>
+<div class="floating-element small" style="top: 60%; left: 25%;">
+<svg viewBox="0 0 24 24"><path d="M21 11.11V5C21 3.9 20.1 3 19 3H14.82C14.4 1.84 13.3 1 12 1S9.6 1.84 9.18 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H11.11C12.37 22.24 14.09 23 16 23C19.87 23 23 19.87 23 16C23 14.09 22.24 12.37 21 11.11M12 3C12.55 3 13 3.45 13 4S12.55 5 12 5 11 4.55 11 4 11.45 3 12 3M5 19V5H7V7H17V5H19V9.68C18.09 9.25 17.08 9 16 9C12.13 9 9 12.13 9 16C9 17.08 9.25 18.09 9.68 19H5M16 21C13.24 21 11 18.76 11 16S13.24 11 16 11 21 13.24 21 16 18.76 21 16 21M16.5 16.25L19.36 17.94L18.61 19.16L15 17V12H16.5V16.25Z"/></svg>
+</div>
+<div class="floating-element small" style="bottom: 40%; right: 30%;">
+<svg viewBox="0 0 24 24"><path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"/></svg>
+</div>
+<div class="floating-element medium" style="bottom: 25%; right: 60%;">
+<svg viewBox="0 0 24 24"><path d="M2 17V20H10V18.11H3.9V17C3.9 16.36 7.03 14.9 10 14.9C10.96 14.91 11.91 15.04 12.83 15.28L14.35 13.76C12.95 13.29 11.5 13.03 10 13C7.33 13 2 14.33 2 17M10 4C7.79 4 6 5.79 6 8S7.79 12 10 12 14 10.21 14 8 12.21 4 10 4M10 10C8.9 10 8 9.11 8 8S8.9 6 10 6 12 6.9 12 8 11.11 10 10 10M21.7 13.35L20.7 14.35L18.65 12.35L19.65 11.35C19.86 11.14 20.21 11.14 20.42 11.35L21.7 12.63C21.91 12.84 21.91 13.19 21.7 13.4M12 18.94L18.06 12.88L20.11 14.88L14.11 20.95H12V18.94"/></svg>
+</div>
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+<div class="container mx-auto px-4 py-2 flex items-center justify-between">
+<div class="flex items-center">
+<a href="MAIN-HOMEPAGE (2).html" data-readdy="true" class="inline-block">
+<img src="https://static.readdy.ai/image/b262a2b76905a2198fef3b5c4022af50/2dab34a1b484517c7ea0ca06b0899e94.png" alt="dR India Logo" class="h-32 w-auto">
+</a>
+</div>
+<nav class="hidden lg:flex items-center flex-1">
+<div class="flex items-center justify-evenly w-full max-w-3xl mx-auto">
+<a href="MAIN-HOMEPAGE (2).html" data-readdy="true" class="font-inter text-base font-medium text-gray-800 hover:text-primary transition-colors px-6">
+Home
+</a>
+<a href="About-Our-Expert-Team (5).html" data-readdy="true" class="font-inter text-base font-medium text-gray-800 hover:text-primary transition-colors px-6">
+About Us
+</a>
+<a href="Services-Offered-Page (1).html" data-readdy="true" class="font-inter text-base font-medium text-gray-800 hover:text-primary transition-colors px-6">
+Services
+</a>
+<a href="Certifications-Showcase-Page (2).html" class="font-inter text-base font-medium text-gray-800 hover:text-primary transition-colors px-6">
+Awards & Achievement
+</a>
+</div>
+</nav>
+<div class="flex items-center space-x-6">
+<a href="Contact-Us (3).html" data-readdy="true" class="bg-primary text-white rounded-button px-7 py-2.5 hover:bg-primary/90 transition-colors whitespace-nowrap text-lg inline-block">
+Contact Us
+</a>
+<button class="lg:hidden w-12 h-12 flex items-center justify-center text-gray-700" id="mobile-menu-button">
+<div class="w-7 h-7 flex items-center justify-center">
+<i class="ri-menu-line ri-2x"></i>
+</div>
+</button>
+</div>
+</div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="lg:hidden hidden bg-white border-t border-gray-100 shadow-lg">
+<div class="container mx-auto px-4 py-2">
+<nav class="flex flex-col space-y-2">
+<a href="MAIN-HOMEPAGE (2).html" class="text-gray-800 font-medium py-2 hover:text-primary transition-colors">Home</a>
+<a href="About-Our-Expert-Team (5).html" data-readdy="true" class="text-gray-800 font-medium py-2 hover:text-primary transition-colors">About Us</a>
+<a href="Services-Offered-Page (1).html" class="text-gray-800 font-medium py-2 hover:text-primary transition-colors">Services</a>
+<a href="#projects" class="text-gray-800 font-medium py-2 hover:text-primary transition-colors">Projects</a>
+<a href="Certifications-Showcase-Page (2).html" class="text-gray-800 font-medium py-2 hover:text-primary transition-colors">Certifications</a>
+<a href="#clients" class="text-gray-800 font-medium py-2 hover:text-primary transition-colors">Clients</a>
+<a href="Contact-Us (3).html" class="text-gray-800 font-medium py-2 hover:text-primary transition-colors">Contact</a>
+</nav>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="hero-section min-h-[800px] flex items-center pt-20 relative overflow-hidden">
+<div class="absolute inset-0" id="hero-slideshow">
+<div class="absolute inset-0 bg-[url('https://readdy.ai/api/search-image?query=bright%20and%20modern%20industrial%20facility%20during%20daytime%20with%20clean%20metal%20structures%20and%20professional%20equipment.%20High-key%20lighting%20with%20soft%20shadows.%20Contemporary%20industrial%20architecture%20featuring%20sleek%20lines%20and%20pristine%20surfaces.%20Light%20airy%20atmosphere%20with%20blue%20sky&width=1920&height=1080&seq=hero_new3&orientation=landscape')] bg-cover bg-center opacity-100 transition-opacity duration-1000"></div>
+<div class="absolute inset-0 opacity-0 transition-opacity duration-1000">
+<video class="absolute inset-0 w-full h-full object-cover" autoplay loop muted playsinline>
+<source src="https://public.readdy.ai/ai/video_res/cae50f09-a7b8-4c64-b7b6-6dbea865c090.mp4" type="video/mp4">
+</video>
+</div>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-transparent" style="backdrop-filter: brightness(1.1);"></div>
+</div>
+<div class="container mx-auto px-4 py-16 w-full relative z-10">
+<div class="flex flex-col items-center text-center">
+<h1 class="text-6xl md:text-7xl lg:text-8xl font-proxima font-bold text-white leading-tight mb-4 tracking-wide animate-headline max-w-5xl mt-[-2rem]">
+Next<span class="text-secondary">G</span>en Painteam
+</h1>
+<h2 class="text-2xl md:text-3xl lg:text-4xl font-proxima font-semibold text-secondary uppercase tracking-widest mb-8 animate-headline">
+INDUSTRIAL COATING SINCE 1993
+</h2>
+<div class="flex flex-wrap justify-center gap-6">
+<a href="Services-Offered-Page (1).html" data-readdy="true" class="bg-secondary text-white rounded-button px-8 py-4 font-medium hover:bg-secondary/90 transition-all transform hover:-translate-y-1 shadow-lg shadow-secondary/20 whitespace-nowrap group">
+<span class="inline-flex items-center">
+Explore Our Services
+<div class="w-6 h-6 flex items-center justify-center ml-2 transform group-hover:translate-x-1 transition-transform">
+<i class="ri-arrow-right-line"></i>
+</div>
+</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 stagger-children">
+<div class="stat-card bg-white p-8 rounded shadow-lg text-center transform hover:-translate-y-2 transition-all duration-300 hover:shadow-xl">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4" data-icon>
+<div class="w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-scales-3-line ri-2x"></i>
+</div>
+</div>
+<h3 class="text-4xl font-bold text-primary mb-2" data-target="3000">3000</h3>
+<p class="text-gray-600">MT / Month<br><span class="text-xs text-gray-500 font-medium">Blasting & Painting</span></p>
+</div>
+<div class="stat-card bg-white p-8 rounded shadow-lg text-center transform hover:-translate-y-2 transition-all duration-300 hover:shadow-xl">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4" data-icon>
+<div class="w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-ruler-2-line ri-2x"></i>
+</div>
+</div>
+<h3 class="text-4xl font-bold text-primary mb-2" data-target="100000">1 lakh+</h3>
+<p class="text-gray-600">Sq. Meter / Month<br><span class="text-xs text-gray-500 font-medium">Maintenance Painting</span></p>
+</div>
+<div class="stat-card bg-white p-8 rounded shadow-lg text-center transform hover:-translate-y-2 transition-all duration-300 hover:shadow-xl">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4" data-icon>
+<div class="w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-user-star-line ri-2x"></i>
+</div>
+</div>
+<h3 class="text-4xl font-bold text-primary mb-2" data-target="25">25+</h3>
+<p class="text-gray-600">Present Clients</p>
+</div>
+<div class="stat-card bg-white p-8 rounded shadow-lg text-center transform hover:-translate-y-2 transition-all duration-300 hover:shadow-xl">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4" data-icon>
+<div class="w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-team-line ri-2x"></i>
+</div>
+</div>
+<h3 class="text-4xl font-bold text-primary mb-2" data-target="600">600+</h3>
+<p class="text-gray-600">Manpower</p>
+</div>
+<div class="stat-card bg-white p-8 rounded shadow-lg text-center transform hover:-translate-y-2 transition-all duration-300 hover:shadow-xl">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4" data-icon>
+<div class="w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-calendar-line ri-2x"></i>
+</div>
+</div>
+<h3 class="text-4xl font-bold text-primary mb-2" data-target="30">30+</h3>
+<p class="text-gray-600">Years Experience</p>
+</div>
+</div>
+</div>
+<script id="counter-animation-script">
+document.addEventListener('DOMContentLoaded', function() {
+const counters = document.querySelectorAll('[data-target]');
+const icons = document.querySelectorAll('[data-icon]');
+const speed = 200;
+const bounceIcon = (icon) => {
+icon.style.animation = 'bounce 0.5s cubic-bezier(0.36, 0, 0.66, -0.56) 1';
+};
+const startCounting = (entries, observer) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+const counter = entry.target;
+const target = parseInt(counter.getAttribute('data-target'));
+let count = 0;
+counter.classList.remove('opacity-0', 'translate-y-4');
+counter.nextElementSibling.classList.remove('opacity-0', 'translate-y-4');
+// Find and bounce the corresponding icon
+const statCard = counter.closest('.stat-card');
+const icon = statCard.querySelector('[data-icon]');
+if (icon) bounceIcon(icon);
+const updateCount = () => {
+const increment = target / speed;
+if (count < target) {
+count += increment;
+counter.innerText = Math.ceil(count) + '+';
+requestAnimationFrame(updateCount);
+} else {
+counter.innerText = target + '+';
+}
+};
+updateCount();
+observer.unobserve(counter);
+}
+});
+};
+const observer = new IntersectionObserver(startCounting, {
+threshold: 0.5
+});
+counters.forEach(counter => observer.observe(counter));
+// Add bounce animation style
+const style = document.createElement('style');
+style.textContent = `
+@keyframes bounce {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-20px); }
+}
+`;
+document.head.appendChild(style);
+});
+</script>
+</section>
+<!-- About Us Section -->
+<section id="about" class="py-20">
+<div class="container mx-auto px-4">
+<div class="flex flex-col gap-12 max-w-5xl mx-auto">
+<div class="w-full">
+<div class="relative mb-8">
+<h2 class="text-sm font-semibold text-secondary uppercase tracking-wider mb-2 relative">About Us</h2>
+<h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 relative">Three Decades of Industrial Excellence</h3>
+</div>
+<div class="bg-white rounded-xl shadow-lg p-8 relative animate-float" style="animation: float 3s ease-in-out infinite; transform-origin: center center; filter: drop-shadow(0 10px 15px rgba(26, 62, 95, 0.1));">
+<div class="flex items-start gap-6 mb-8">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white flex-shrink-0">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-shield-star-line"></i>
+</div>
+</div>
+<p class="text-gray-700">
+Since 1994, The dR India has been at the forefront of industrial coatings and asset management, transforming how industries protect their critical infrastructure. With a team of over 600+ members, including NACE and SSPC certified experts, we deliver precision and excellence in every project.
+</p>
+</div>
+<div class="space-y-4">
+<div class="flex items-start p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-all duration-300">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+<div class="w-6 h-6 flex items-center justify-center text-primary">
+<i class="ri-shield-check-line"></i>
+</div>
+</div>
+<div>
+<h4 class="font-semibold text-gray-900 mb-2">ISO Certified</h4>
+<p class="text-gray-600">Compliant with 9001, 14001, and 45001 international standards for quality, environmental, and safety management.</p>
+</div>
+</div>
+<div class="flex items-start p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-all duration-300">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+<div class="w-6 h-6 flex items-center justify-center text-primary">
+<i class="ri-medal-line"></i>
+</div>
+</div>
+<div>
+<h4 class="font-semibold text-gray-900 mb-2">NACE Certified</h4>
+<p class="text-gray-600">Our team holds international certifications in corrosion control and protective coatings from NACE International.</p>
+</div>
+</div>
+<div class="flex items-start p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-all duration-300">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+<div class="w-6 h-6 flex items-center justify-center text-primary">
+<i class="ri-hand-heart-line"></i>
+</div>
+</div>
+<div>
+<h4 class="font-semibold text-gray-900 mb-2">Ethical Business</h4>
+<p class="text-gray-600">Committed to transparent operations, sustainable practices, and maintaining the highest standards of business ethics.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full relative mt-4">
+<div class="absolute -top-4 -right-4 w-32 h-32 bg-secondary/10 rounded-lg"></div>
+<div class="relative">
+<img src="team.png"
+alt="The dR India Team"
+class="rounded-xl shadow-xl w-full h-auto object-contain">
+<div class="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/10 rounded-lg -z-10"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section id="services" class="py-20 bg-gray-50 transition-colors duration-300 hover:bg-gray-100/90">
+<div class="container mx-auto px-4">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="text-sm font-bold text-secondary uppercase tracking-wider mb-2">Our Services</h2>
+<h3 class="text-3xl md:text-4xl font-black text-gray-900 mb-4">Comprehensive Industrial Protection Solutions</h3>
+<p class="text-gray-600">
+We offer a complete range of specialized coating and protection services designed to extend the life of your industrial assets and infrastructure.
+</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-children">
+<!-- Service 1 -->
+<div class="service-card bg-white rounded-lg shadow-lg overflow-hidden group">
+<div class="h-48 bg-gray-200 relative">
+<img src="https://readdy.ai/api/search-image?query=industrial%2520anti-corrosive%2520painting%2520being%2520applied%2520to%2520metal%2520structures%2520by%2520professional%2520workers%2520in%2520safety%2520gear.%2520Close-up%2520of%2520the%2520painting%2520process%2520showing%2520the%2520high-quality%2520finish%2520and%2520attention%2520to%2520detail.%2520Industrial%2520setting%2520with%2520professional%2520equipment&width=400&height=250&seq=service1&orientation=landscape"
+alt="Anti-Corrosive Painting"
+class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-primary">
+<div class="w-6 h-6 flex items-center justify-center text-primary transition-all duration-300 group-hover:text-white transform group-hover:rotate-12 group-hover:scale-110 group-hover:-translate-y-1">
+<i class="ri-paint-brush-line"></i>
+</div>
+</div>
+<h4 class="text-xl font-proxima text-gray-900 mb-2">Anti-Corrosive Painting</h4>
+<p class="text-gray-600 mb-4">
+Advanced coating systems that provide long-term protection against corrosion for industrial structures and equipment in harsh environments.
+</p>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary/80 transition-colors">
+Learn more
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Service 2 -->
+<div class="service-card bg-white rounded-lg shadow-lg overflow-hidden group">
+<div class="h-48 bg-gray-200 relative">
+<img src="https://readdy.ai/api/search-image?query=wet-abrasive%2520blasting%2520process%2520on%2520industrial%2520metal%2520surface%2520with%2520specialized%2520equipment.%2520Workers%2520in%2520full%2520protective%2520gear%2520operating%2520high-pressure%2520blasting%2520equipment%2520to%2520prepare%2520surfaces%2520for%2520coating.%2520Industrial%2520setting%2520with%2520professional%2520equipment%2520and%2520safety%2520measures&width=400&height=250&seq=service2&orientation=landscape"
+alt="Wet-Abrasive Blasting"
+class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-primary">
+<div class="w-6 h-6 flex items-center justify-center text-primary transition-all duration-300 group-hover:text-white transform group-hover:rotate-12 group-hover:scale-110 group-hover:-translate-y-1">
+<i class="ri-blaze-line"></i>
+</div>
+</div>
+<h4 class="text-xl font-proxima text-gray-900 mb-2">Wet-Abrasive Blasting</h4>
+<p class="text-gray-600 mb-4">
+Environmentally friendly surface preparation technique that minimizes dust while achieving optimal surface profiles for coating adhesion.
+</p>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary/80 transition-colors">
+Learn more
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Service 3 -->
+<div class="service-card bg-white rounded-lg shadow-lg overflow-hidden group">
+<div class="h-48 bg-gray-200 relative">
+<img src="https://readdy.ai/api/search-image?query=high-performance%2520industrial%2520coating%2520being%2520applied%2520to%2520large%2520metal%2520structures.%2520Professional%2520workers%2520using%2520specialized%2520spray%2520equipment%2520to%2520apply%2520advanced%2520coating%2520systems.%2520Close-up%2520of%2520the%2520application%2520process%2520showing%2520the%2520high-quality%2520finish.%2520Industrial%2520setting&width=400&height=250&seq=service3&orientation=landscape"
+alt="High-Performance Coating"
+class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-primary">
+<div class="w-6 h-6 flex items-center justify-center text-primary transition-all duration-300 group-hover:text-white transform group-hover:rotate-12 group-hover:scale-110 group-hover:-translate-y-1">
+<i class="ri-palette-line"></i>
+</div>
+</div>
+<h4 class="text-xl font-proxima text-gray-900 mb-2">High Performance Coating</h4>
+<p class="text-gray-600 mb-4">
+Specialized coating systems designed to withstand extreme conditions including chemical exposure, high temperatures, and mechanical stress.
+</p>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary/80 transition-colors">
+Learn more
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Service 4 -->
+<div class="service-card bg-white rounded-lg shadow-lg overflow-hidden group">
+<div class="h-48 bg-gray-200 relative">
+<img src="https://readdy.ai/api/search-image?query=acid-proof%2520lining%2520installation%2520in%2520industrial%2520chemical%2520processing%2520facility.%2520Workers%2520installing%2520specialized%2520acid-resistant%2520materials%2520in%2520tanks%2520or%2520vessels.%2520Close-up%2520of%2520the%2520precision%2520work%2520required%2520for%2520chemical%2520containment.%2520Industrial%2520setting%2520with%2520professional%2520equipment&width=400&height=250&seq=service4&orientation=landscape"
+alt="Acid Proof Lining"
+class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-primary">
+<div class="w-6 h-6 flex items-center justify-center text-primary transition-all duration-300 group-hover:text-white transform group-hover:rotate-12 group-hover:scale-110 group-hover:-translate-y-1">
+<i class="ri-flask-line"></i>
+</div>
+</div>
+<h4 class="text-xl font-proxima text-gray-900 mb-2">Acid Proof Lining</h4>
+<p class="text-gray-600 mb-4">
+Chemical-resistant lining systems that protect concrete and metal surfaces from deterioration in aggressive chemical environments.
+</p>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary/80 transition-colors">
+Learn more
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Service 5 -->
+<div class="service-card bg-white rounded-lg shadow-lg overflow-hidden group">
+<div class="h-48 bg-gray-200 relative">
+<img src="https://readdy.ai/api/search-image?query=industrial%2520floor%2520coating%2520application%2520in%2520a%2520large%2520facility.%2520Workers%2520applying%2520epoxy%2520or%2520polyurethane%2520floor%2520coating%2520systems%2520with%2520specialized%2520equipment.%2520Wide%2520shot%2520showing%2520the%2520scale%2520of%2520the%2520flooring%2520project.%2520Industrial%2520setting%2520with%2520clean%2C%2520professional%2520application&width=400&height=250&seq=service5&orientation=landscape"
+alt="Floor Coatings"
+class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-primary">
+<div class="w-6 h-6 flex items-center justify-center text-primary transition-all duration-300 group-hover:text-white transform group-hover:rotate-12 group-hover:scale-110 group-hover:-translate-y-1">
+<i class="ri-layout-bottom-line"></i>
+</div>
+</div>
+<h4 class="text-xl font-proxima text-gray-900 mb-2">Floor Coating</h4>
+<p class="text-gray-600 mb-4">
+Durable, chemical-resistant flooring solutions for industrial facilities that enhance safety, cleanability, and aesthetic appeal.
+</p>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary/80 transition-colors">
+Learn more
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Service 6 -->
+<div class="service-card bg-white rounded-lg shadow-lg overflow-hidden group">
+<div class="h-48 bg-gray-200 relative">
+<img src="https://readdy.ai/api/search-image?query=thermal%2520spray%2520aluminum%2520%28TSA%29%2520metallizing%2520process%2520on%2520industrial%2520equipment.%2520Workers%2520using%2520specialized%2520thermal%2520spray%2520equipment%2520to%2520apply%2520metal%2520coatings.%2520Close-up%2520of%2520the%2520application%2520process%2520showing%2520the%2520metallic%2520finish.%2520Industrial%2520setting%2520with%2520professional%2520equipment&width=400&height=250&seq=service6&orientation=landscape"
+alt="Metallizing (TSA)"
+class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-primary">
+<div class="w-6 h-6 flex items-center justify-center text-primary transition-all duration-300 group-hover:text-white transform group-hover:rotate-12 group-hover:scale-110 group-hover:-translate-y-1">
+<i class="ri-copper-coin-line"></i>
+</div>
+</div>
+<h4 class="text-xl font-proxima text-gray-900 mb-2">Metallizing & Galvanizing</h4>
+<p class="text-gray-600 mb-4">
+Thermal Spray Aluminum coating that provides superior long-term corrosion protection for offshore and coastal industrial assets.
+</p>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary/80 transition-colors">
+Learn more
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Service 7 -->
+<div class="service-card bg-white rounded-lg shadow-lg overflow-hidden group">
+<div class="h-48 bg-gray-200 relative">
+<img src="https://readdy.ai/api/search-image?query=industrial%2520abrasive%2520blasting%2520sandblasting%2520surface%2520preparation%2520with%2520specialized%2520equipment.%2520Workers%2520in%2520full%2520protective%2520gear%2520operating%2520blasting%2520nozzles%2520on%2520steel%2520structures.%2520Close-up%2520of%2520the%2520process%2520showing%2520the%2520clean%2520metal%2520finish.%2520Industrial%2520setting&width=400&height=250&seq=service7_blasting&orientation=landscape"
+alt="Abrasive Blasting"
+class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-primary">
+<div class="w-6 h-6 flex items-center justify-center text-primary transition-all duration-300 group-hover:text-white transform group-hover:rotate-12 group-hover:scale-110 group-hover:-translate-y-1">
+<i class="ri-shield-flash-line"></i>
+</div>
+</div>
+<h4 class="text-xl font-proxima text-gray-900 mb-2">Abrasive Blasting</h4>
+<p class="text-gray-600 mb-4">
+High-pressure abrasive blasting techniques to prepare metal and concrete surfaces, ensuring optimal profile and adhesion for protective coatings.
+</p>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary/80 transition-colors">
+Learn more
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Service 8 -->
+<div class="service-card bg-white rounded-lg shadow-lg overflow-hidden group">
+<div class="h-48 bg-gray-200 relative">
+<img src="https://readdy.ai/api/search-image?query=corrosion%2520audit%2520being%2520conducted%2520at%2520industrial%2520facility.%2520Professional%2520inspector%2520using%2520specialized%2520equipment%2520to%2520assess%2520corrosion%2520damage%2520on%2520industrial%2520structures.%2520Close-up%2520of%2520inspection%2520tools%2520and%2520documentation%2520process.%2520Industrial%2520setting%2520with%2520professional%2520assessment&width=400&height=250&seq=service8&orientation=landscape"
+alt="Corrosion Audits"
+class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-primary">
+<div class="w-6 h-6 flex items-center justify-center text-primary transition-all duration-300 group-hover:text-white transform group-hover:rotate-12 group-hover:scale-110 group-hover:-translate-y-1">
+<i class="ri-file-search-line"></i>
+</div>
+</div>
+<h4 class="text-xl font-proxima text-gray-900 mb-2">Corrosion Audits</h4>
+<p class="text-gray-600 mb-4">
+Comprehensive assessment services that identify corrosion risks and develop targeted protection strategies for industrial assets.
+</p>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary/80 transition-colors">
+Learn more
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Service 9 -->
+<div class="service-card bg-white rounded-lg shadow-lg overflow-hidden group">
+<div class="h-48 bg-gray-200 relative">
+<img src="https://readdy.ai/api/search-image?query=industrial%2520chimney%2520coating%2520project%2520showing%2520workers%2520on%2520scaffolding%2520applying%2520specialized%2520coatings%2520to%2520a%2520tall%2520industrial%2520chimney.%2520Wide%2520shot%2520showing%2520the%2520scale%2520of%2520the%2520project%2520with%2520safety%2520equipment%2520and%2520professional%2520application%2520techniques.%2520Industrial%2520setting%2520with%2520impressive%2520height&width=400&height=250&seq=service9&orientation=landscape"
+alt="Chimney Coating"
+class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-primary">
+<div class="w-6 h-6 flex items-center justify-center text-primary transition-all duration-300 group-hover:text-white transform group-hover:rotate-12 group-hover:scale-110 group-hover:-translate-y-1">
+<i class="ri-building-2-line"></i>
+</div>
+</div>
+<h4 class="text-xl font-proxima text-gray-900 mb-2">Chimney Internal & External Coating</h4>
+<p class="text-gray-600 mb-4">
+Specialized high-temperature coating systems for industrial chimneys that withstand extreme conditions and extend service life.
+</p>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary/80 transition-colors">
+Learn more
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Service 10 -->
+<div class="service-card bg-white rounded-lg shadow-lg overflow-hidden group">
+<div class="h-48 bg-gray-200 relative">
+<img src="https://readdy.ai/api/search-image?query=industrial%2520tank%2520lining%2520application%2520process%2520with%2520workers%2520applying%2520specialized%2520protective%2520coatings%2520inside%2520large%2520storage%2520tanks.%2520Close-up%2520of%2520the%2520precise%2520application%2520technique%2520and%2520safety%2520measures.%2520Industrial%2520setting%2520with%2520professional%2520equipment&width=400&height=250&seq=service10&orientation=landscape"
+alt="Tank Lining"
+class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-primary">
+<div class="w-6 h-6 flex items-center justify-center text-primary transition-all duration-300 group-hover:text-white transform group-hover:rotate-12 group-hover:scale-110 group-hover:-translate-y-1">
+<i class="ri-database-2-line"></i>
+</div>
+</div>
+<h4 class="text-xl font-proxima text-gray-900 mb-2">Decorative Painting</h4>
+<p class="text-gray-600 mb-4">
+Our Decorative Painting Service blends functionality with aesthetics, delivering high-performance industrial coatings that also enhance visual appeal.
+</p>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary/80 transition-colors">
+Learn more
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Service 11 -->
+<div class="service-card bg-white rounded-lg shadow-lg overflow-hidden group">
+<div class="h-48 bg-gray-200 relative">
+<img src="https://readdy.ai/api/search-image?query=industrial%2520pipeline%2520coating%2520application%2520with%2520workers%2520using%2520specialized%2520equipment%2520to%2520apply%2520protective%2520coatings%2520on%2520large%2520diameter%2520pipes.%2520Wide%2520shot%2520showing%2520the%2520scale%2520of%2520pipeline%2520protection%2520work.%2520Industrial%2520setting%2520with%2520professional%2520safety%2520measures&width=400&height=250&seq=service11&orientation=landscape"
+alt="Pipeline Coating"
+class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-primary">
+<div class="w-6 h-6 flex items-center justify-center text-primary transition-all duration-300 group-hover:text-white transform group-hover:rotate-12 group-hover:scale-110 group-hover:-translate-y-1">
+<i class="ri-pipe-line"></i>
+</div>
+</div>
+<h4 class="text-xl font-proxima text-gray-900 mb-2">Pipeline Coating</h4>
+<p class="text-gray-600 mb-4">
+Comprehensive pipeline protection solutions including external and internal coatings for optimal performance and longevity.
+</p>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary/80 transition-colors">
+Learn more
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Service 12 -->
+<div class="service-card bg-white rounded-lg shadow-lg overflow-hidden group">
+<div class="h-48 bg-gray-200 relative">
+<img src="https://readdy.ai/api/search-image?query=industrial%2520fireproofing%2520application%2520process%2520showing%2520workers%2520applying%2520specialized%2520fire-resistant%2520coatings%2520to%2520structural%2520steel.%2520Close-up%2520of%2520the%2520application%2520technique%2520with%2520proper%2520safety%2520measures.%2520Industrial%2520setting%2520with%2520professional%2520equipment&width=400&height=250&seq=service12&orientation=landscape"
+alt="Fireproofing"
+class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-primary">
+<div class="w-6 h-6 flex items-center justify-center text-primary transition-all duration-300 group-hover:text-white transform group-hover:rotate-12 group-hover:scale-110 group-hover:-translate-y-1">
+<i class="ri-fire-line"></i>
+</div>
+</div>
+<h4 class="text-xl font-proxima text-gray-900 mb-2">Fire Proofing</h4>
+<p class="text-gray-600 mb-4">
+Advanced fireproofing solutions for structural steel and critical equipment, ensuring safety and compliance with fire protection standards.
+</p>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary/80 transition-colors">
+Learn more
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Section -->
+<section id="projects" class="py-20">
+<div class="container mx-auto px-4">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="text-sm font-bold text-secondary uppercase tracking-wider mb-2">Featured Projects</h2>
+<h3 class="text-3xl md:text-4xl font-black text-gray-900 mb-4">Our Landmark Achievements</h3>
+</div>
+<div class="relative" id="projects-carousel">
+<div class="overflow-hidden">
+<div class="flex transition-transform duration-300 ease-in-out" id="carousel-container">
+<!-- Project 1 -->
+<div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+<div class="bg-white rounded-lg shadow-lg overflow-hidden h-full">
+<div class="h-64 bg-gray-200 relative">
+<img src="https://static.readdy.ai/image/b262a2b76905a2198fef3b5c4022af50/607e04eed4aedc262e4ae258e000cf90.jfif"
+alt="HMEL Chimney Project"
+class="w-full h-full object-cover object-top">
+<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+<span class="text-white text-sm font-medium bg-secondary/90 rounded-full px-3 py-1">Chimney Coating</span>
+</div>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-proxima text-gray-900 mb-2">HMEL Chimney (132m)</h4>
+<p class="text-gray-600 mb-4">
+Successfully completed the coating of a 132-meter chimney for HMEL, implementing specialized high-temperature resistant systems to ensure long-term protection.
+</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-gray-600 text-sm">Bathinda, Punjab</span>
+</div>
+<a href="#" class="text-primary font-medium hover:text-primary/80 transition-colors text-sm">View Details</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+<div class="bg-white rounded-lg shadow-lg overflow-hidden h-full">
+<div class="h-64 bg-gray-200 relative">
+<img src="https://static.readdy.ai/image/b262a2b76905a2198fef3b5c4022af50/62969000ac5b060dfef7f1171445db2c.jfif"
+alt="DCM Shriram Project"
+class="w-full h-full object-cover object-top">
+<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+<span class="text-white text-sm font-medium bg-secondary/90 rounded-full px-3 py-1">Anti-Corrosive Painting</span>
+</div>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-proxima text-gray-900 mb-2">5000MT DCM Shriram</h4>
+<p class="text-gray-600 mb-4">
+Completed comprehensive anti-corrosive coating for 5000 metric tons of structural steel at DCM Shriram's facility, ensuring long-term asset protection.
+</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-gray-600 text-sm">Kota, Rajasthan</span>
+</div>
+<a href="#" class="text-primary font-medium hover:text-primary/80 transition-colors text-sm">View Details</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+<div class="bg-white rounded-lg shadow-lg overflow-hidden h-full">
+<div class="h-64 bg-gray-200 relative">
+<img src="https://readdy.ai/api/search-image?query=automated%2520industrial%2520blasting%2520system%2520in%2520operation%2520at%2520VEPL%2520facility.%2520Close-up%2520of%2520the%2520autoblasting%2520machinery%2520processing%2520metal%2520components%2520with%2520high%2520precision.%2520Industrial%2520setting%2520showing%2520advanced%2520technology%2520and%2520automation.%2520Clean%2C%2520professional%2520environment&width=500&height=350&seq=project3&orientation=landscape"
+alt="Autoblasting with VEPL"
+class="w-full h-full object-cover object-top">
+<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+<span class="text-white text-sm font-medium bg-secondary/90 rounded-full px-3 py-1">Automated Blasting</span>
+</div>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-proxima text-gray-900 mb-2">Autoblasting with VEPL</h4>
+<p class="text-gray-600 mb-4">
+Implemented cutting-edge automated blasting technology in partnership with VEPL, significantly improving efficiency and surface preparation quality.
+</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-gray-600 text-sm">Vadodara, Gujarat</span>
+</div>
+<a href="#" class="text-primary font-medium hover:text-primary/80 transition-colors text-sm">View Details</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Project 4 -->
+<div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+<div class="bg-white rounded-lg shadow-lg overflow-hidden h-full">
+<div class="h-64 bg-gray-200 relative">
+<img src="https://readdy.ai/api/search-image?query=tall%252057m%2520industrial%2520distillation%2520column%2520being%2520coated%2520with%2520specialized%2520paint.%2520Workers%2520on%2520scaffolding%2520applying%2520protective%2520coatings%2520to%2520the%2520massive%2520vertical%2520structure.%2520Wide%2520shot%2520showing%2520the%2520scale%2520of%2520the%2520project.%2520Industrial%2520setting%2520with%2520professional%2520equipment&width=500&height=350&seq=project4&orientation=landscape"
+alt="57m Distillation Column"
+class="w-full h-full object-cover object-top">
+<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+<span class="text-white text-sm font-medium bg-secondary/90 rounded-full px-3 py-1">Column Coating</span>
+</div>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-proxima text-gray-900 mb-2">57m Distillation Column</h4>
+<p class="text-gray-600 mb-4">
+Successfully coated a 57-meter distillation column with high-performance chemical-resistant systems, ensuring protection in extreme processing conditions.
+</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-gray-600 text-sm">Dahej, Gujarat</span>
+</div>
+<a href="#" class="text-primary font-medium hover:text-primary/80 transition-colors text-sm">View Details</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Project 5 -->
+<div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+<div class="bg-white rounded-lg shadow-lg overflow-hidden h-full">
+<div class="h-64 bg-gray-200 relative">
+<img src="https://readdy.ai/api/search-image?query=large-scale%2520industrial%2520painting%2520project%2520at%2520IOCL%2520refinery.%2520Multiple%2520workers%2520applying%2520protective%2520coatings%2520to%2520massive%2520refinery%2520equipment%2520and%2520structures.%2520Wide%2520shot%2520showing%2520the%2520scale%2520of%2520the%2520project.%2520Industrial%2520setting%2520with%2520professional%2520safety%2520measures&width=500&height=350&seq=project5&orientation=landscape"
+alt="IOCL Project"
+class="w-full h-full object-cover object-top">
+<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+<span class="text-white text-sm font-medium bg-secondary/90 rounded-full px-3 py-1">Refinery Coating</span>
+</div>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-proxima text-gray-900 mb-2">IOCL Refinery Project</h4>
+<p class="text-gray-600 mb-4">
+Completed comprehensive coating systems for critical equipment at IOCL's refinery, meeting stringent safety and performance requirements.
+</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-gray-600 text-sm">Panipat, Haryana</span>
+</div>
+<a href="#" class="text-primary font-medium hover:text-primary/80 transition-colors text-sm">View Details</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Project 6 -->
+<div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+<div class="bg-white rounded-lg shadow-lg overflow-hidden h-full">
+<div class="h-64 bg-gray-200 relative">
+<img src="https://readdy.ai/api/search-image?query=international%2520industrial%2520painting%2520project%2520at%2520Farabi%2520Petrochemicals.%2520Workers%2520applying%2520specialized%2520coatings%2520to%2520large%2520petrochemical%2520equipment%2520and%2520structures.%2520Wide%2520shot%2520showing%2520the%2520scale%2520of%2520the%2520international%2520project.%2520Middle%2520Eastern%2520industrial%2520setting&width=500&height=350&seq=project6&orientation=landscape"
+alt="Farabi Project"
+class="w-full h-full object-cover object-top">
+<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+<span class="text-white text-sm font-medium bg-secondary/90 rounded-full px-3 py-1">International Project</span>
+</div>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-proxima text-gray-900 mb-2">Farabi Petrochemicals</h4>
+<p class="text-gray-600 mb-4">
+Successfully executed an international project for Farabi Petrochemicals, delivering high-performance coating systems for their critical assets.
+</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-gray-600 text-sm">Jubail, Saudi Arabia</span>
+</div>
+<a href="#" class="text-primary font-medium hover:text-primary/80 transition-colors text-sm">View Details</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Carousel Controls -->
+<button class="absolute top-1/2 left-2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-700 hover:bg-gray-50 focus:outline-none" id="prev-btn">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-arrow-left-s-line ri-xl"></i>
+</div>
+</button>
+<button class="absolute top-1/2 right-2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-700 hover:bg-gray-50 focus:outline-none" id="next-btn">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-arrow-right-s-line ri-xl"></i>
+</div>
+</button>
+<!-- Carousel Indicators -->
+<div class="flex justify-center mt-8">
+<div class="flex space-x-2" id="carousel-indicators">
+<button class="w-3 h-3 rounded-full bg-primary" data-index="0"></button>
+<button class="w-3 h-3 rounded-full bg-gray-300" data-index="1"></button>
+<button class="w-3 h-3 rounded-full bg-gray-300" data-index="3"></button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Code of Conduct Section -->
+<section id="conduct" class="py-20 bg-gray-50 relative overflow-visible">
+<div class="container mx-auto px-4 relative z-10">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="text-sm font-bold text-secondary uppercase tracking-wider mb-2 opacity-0 transform translate-y-4 transition-all duration-700 ease-out" data-animate>Our Commitment</h2>
+<h3 class="text-3xl md:text-4xl font-black text-gray-900 mb-4 opacity-0 transform translate-y-4 transition-all duration-700 delay-100 ease-out" data-animate>Code of Conduct</h3>
+<p class="text-gray-600 opacity-0 transform translate-y-4 transition-all duration-700 delay-200 ease-out" data-animate>
+We have established comprehensive policies to ensure sustainability, ethical business practices, and a safe working environment for all.
+</p>
+</div>
+
+<div class="relative max-w-5xl mx-auto flex flex-col items-center justify-center min-h-[600px] overflow-visible">
+  <!-- Orbital Timeline Container -->
+  <div id="orbital-container" class="relative w-full max-w-3xl h-[550px] md:h-[600px] flex items-center justify-center select-none overflow-visible">
+
+    <!-- Orbit Path Ring -->
+    <div class="absolute w-[360px] h-[360px] md:w-[480px] md:h-[480px] rounded-full border border-primary/20 pointer-events-none z-0"></div>
+    <div class="absolute w-[240px] h-[240px] md:w-[320px] md:h-[320px] rounded-full border border-primary/10 pointer-events-none z-0"></div>
+
+    <!-- Center Node -->
+    <div id="center-node" class="absolute w-36 h-36 md:w-44 md:h-44 rounded-full bg-primary flex flex-col items-center justify-center z-40 shadow-2xl transition-all duration-300 cursor-pointer">
+      <div class="absolute inset-0 rounded-full border border-primary/20 animate-ping opacity-60 pointer-events-none"></div>
+      <div class="absolute -inset-4 rounded-full border border-primary/10 animate-ping opacity-40 pointer-events-none" style="animation-delay: 0.5s;"></div>
+      <h4 class="text-white text-lg md:text-2xl font-bold text-center px-4 z-10 leading-snug">Code of Conduct</h4>
+    </div>
+
+    <!-- Orbiting Nodes Wrapper -->
+    <div class="absolute inset-0 pointer-events-none">
+
+      <!-- Node 1: Business Code and Ethics Policy -->
+      <div class="conduct-node absolute pointer-events-auto cursor-pointer transition-all duration-700 ease-out" data-index="0" style="left: 50%; top: 50%; width: 0; height: 0;">
+        <div class="absolute w-16 h-16 rounded-full bg-primary/5 -translate-x-1/2 -translate-y-1/2 animate-pulse pointer-events-none"></div>
+        <div class="node-circle w-12 h-12 rounded-full bg-white text-primary border border-primary/20 flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-125 transition-all duration-300 -translate-x-1/2 -translate-y-1/2">
+          <i class="ri-shield-check-line text-lg"></i>
+        </div>
+        <div class="node-title absolute top-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-[11px] font-bold text-gray-700 tracking-wider bg-white/80 backdrop-blur-sm px-2 py-0.5 rounded shadow-sm border border-gray-100">
+          Business Ethics
+        </div>
+        <div class="node-card hidden absolute top-14 left-1/2 -translate-x-1/2 w-64 md:w-72 bg-white border border-gray-200/80 shadow-2xl rounded-xl p-5 z-50 text-gray-800 transition-all duration-300">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-px h-3 bg-gray-300"></div>
+          <div class="flex justify-between items-center mb-2">
+            <span class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-primary/10 text-primary uppercase">Ethics</span>
+            <span class="text-[10px] font-mono text-gray-400">POLICY</span>
+          </div>
+          <h5 class="text-sm font-bold text-gray-900 mb-2">Business Code and Ethics Policy</h5>
+          <p class="text-xs text-gray-600 leading-relaxed mb-4">Maintaining highest standards of business ethics and integrity</p>
+          <div class="pt-3 border-t border-gray-100">
+            <div class="flex justify-between items-center text-[10px] text-gray-500 mb-1">
+              <span class="flex items-center">
+                <i class="ri-flashlight-line mr-1 text-secondary"></i>
+                Compliance Level
+              </span>
+              <span class="font-mono text-primary font-bold">100%</span>
+            </div>
+            <div class="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-primary to-secondary" style="width: 100%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Node 2: Grievance Mechanism -->
+      <div class="conduct-node absolute pointer-events-auto cursor-pointer transition-all duration-700 ease-out" data-index="1" style="left: 50%; top: 50%; width: 0; height: 0;">
+        <div class="absolute w-16 h-16 rounded-full bg-primary/5 -translate-x-1/2 -translate-y-1/2 animate-pulse pointer-events-none"></div>
+        <div class="node-circle w-12 h-12 rounded-full bg-white text-primary border border-primary/20 flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-125 transition-all duration-300 -translate-x-1/2 -translate-y-1/2">
+          <i class="ri-customer-service-2-line text-lg"></i>
+        </div>
+        <div class="node-title absolute top-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-[11px] font-bold text-gray-700 tracking-wider bg-white/80 backdrop-blur-sm px-2 py-0.5 rounded shadow-sm border border-gray-100">
+          Grievance
+        </div>
+        <div class="node-card hidden absolute top-14 left-1/2 -translate-x-1/2 w-64 md:w-72 bg-white border border-gray-200/80 shadow-2xl rounded-xl p-5 z-50 text-gray-800 transition-all duration-300">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-px h-3 bg-gray-300"></div>
+          <div class="flex justify-between items-center mb-2">
+            <span class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-primary/10 text-primary uppercase">Support</span>
+            <span class="text-[10px] font-mono text-gray-400">MECHANISM</span>
+          </div>
+          <h5 class="text-sm font-bold text-gray-900 mb-2">Grievance Mechanism</h5>
+          <p class="text-xs text-gray-600 leading-relaxed mb-4">Transparent system for addressing concerns</p>
+          <div class="pt-3 border-t border-gray-100">
+            <div class="flex justify-between items-center text-[10px] text-gray-500 mb-1">
+              <span class="flex items-center">
+                <i class="ri-flashlight-line mr-1 text-secondary"></i>
+                Resolution Rate
+              </span>
+              <span class="font-mono text-primary font-bold">100%</span>
+            </div>
+            <div class="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-primary to-secondary" style="width: 100%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Node 3: Environment Policy -->
+      <div class="conduct-node absolute pointer-events-auto cursor-pointer transition-all duration-700 ease-out" data-index="2" style="left: 50%; top: 50%; width: 0; height: 0;">
+        <div class="absolute w-16 h-16 rounded-full bg-primary/5 -translate-x-1/2 -translate-y-1/2 animate-pulse pointer-events-none"></div>
+        <div class="node-circle w-12 h-12 rounded-full bg-white text-primary border border-primary/20 flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-125 transition-all duration-300 -translate-x-1/2 -translate-y-1/2">
+          <i class="ri-plant-line text-lg"></i>
+        </div>
+        <div class="node-title absolute top-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-[11px] font-bold text-gray-700 tracking-wider bg-white/80 backdrop-blur-sm px-2 py-0.5 rounded shadow-sm border border-gray-100">
+          Environment
+        </div>
+        <div class="node-card hidden absolute top-14 left-1/2 -translate-x-1/2 w-64 md:w-72 bg-white border border-gray-200/80 shadow-2xl rounded-xl p-5 z-50 text-gray-800 transition-all duration-300">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-px h-3 bg-gray-300"></div>
+          <div class="flex justify-between items-center mb-2">
+            <span class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-green-500/10 text-green-600 uppercase">Sustainability</span>
+            <span class="text-[10px] font-mono text-gray-400">POLICY</span>
+          </div>
+          <h5 class="text-sm font-bold text-gray-900 mb-2">Environment Policy</h5>
+          <p class="text-xs text-gray-600 leading-relaxed mb-4">Committed to sustainable practices and environmental protection</p>
+          <div class="pt-3 border-t border-gray-100">
+            <div class="flex justify-between items-center text-[10px] text-gray-500 mb-1">
+              <span class="flex items-center">
+                <i class="ri-flashlight-line mr-1 text-secondary"></i>
+                Green Index
+              </span>
+              <span class="font-mono text-primary font-bold">100%</span>
+            </div>
+            <div class="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-primary to-secondary" style="width: 100%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Node 4: Labour and HR Policy -->
+      <div class="conduct-node absolute pointer-events-auto cursor-pointer transition-all duration-700 ease-out" data-index="3" style="left: 50%; top: 50%; width: 0; height: 0;">
+        <div class="absolute w-16 h-16 rounded-full bg-primary/5 -translate-x-1/2 -translate-y-1/2 animate-pulse pointer-events-none"></div>
+        <div class="node-circle w-12 h-12 rounded-full bg-white text-primary border border-primary/20 flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-125 transition-all duration-300 -translate-x-1/2 -translate-y-1/2">
+          <i class="ri-team-line text-lg"></i>
+        </div>
+        <div class="node-title absolute top-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-[11px] font-bold text-gray-700 tracking-wider bg-white/80 backdrop-blur-sm px-2 py-0.5 rounded shadow-sm border border-gray-100">
+          Labour & HR
+        </div>
+        <div class="node-card hidden absolute top-14 left-1/2 -translate-x-1/2 w-64 md:w-72 bg-white border border-gray-200/80 shadow-2xl rounded-xl p-5 z-50 text-gray-800 transition-all duration-300">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-px h-3 bg-gray-300"></div>
+          <div class="flex justify-between items-center mb-2">
+            <span class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-primary/10 text-primary uppercase">Welfare</span>
+            <span class="text-[10px] font-mono text-gray-400">STANDARDS</span>
+          </div>
+          <h5 class="text-sm font-bold text-gray-900 mb-2">Labour and HR Policy</h5>
+          <p class="text-xs text-gray-600 leading-relaxed mb-4">Fair practices ensuring employee well-being</p>
+          <div class="pt-3 border-t border-gray-100">
+            <div class="flex justify-between items-center text-[10px] text-gray-500 mb-1">
+              <span class="flex items-center">
+                <i class="ri-flashlight-line mr-1 text-secondary"></i>
+                Welfare Rating
+              </span>
+              <span class="font-mono text-primary font-bold">100%</span>
+            </div>
+            <div class="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-primary to-secondary" style="width: 100%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Node 5: Policy on Sexual Harassment -->
+      <div class="conduct-node absolute pointer-events-auto cursor-pointer transition-all duration-700 ease-out" data-index="4" style="left: 50%; top: 50%; width: 0; height: 0;">
+        <div class="absolute w-16 h-16 rounded-full bg-primary/5 -translate-x-1/2 -translate-y-1/2 animate-pulse pointer-events-none"></div>
+        <div class="node-circle w-12 h-12 rounded-full bg-white text-primary border border-primary/20 flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-125 transition-all duration-300 -translate-x-1/2 -translate-y-1/2">
+          <i class="ri-hand-heart-line text-lg"></i>
+        </div>
+        <div class="node-title absolute top-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-[11px] font-bold text-gray-700 tracking-wider bg-white/80 backdrop-blur-sm px-2 py-0.5 rounded shadow-sm border border-gray-100">
+          POSH
+        </div>
+        <div class="node-card hidden absolute top-14 left-1/2 -translate-x-1/2 w-64 md:w-72 bg-white border border-gray-200/80 shadow-2xl rounded-xl p-5 z-50 text-gray-800 transition-all duration-300">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-px h-3 bg-gray-300"></div>
+          <div class="flex justify-between items-center mb-2">
+            <span class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-red-500/10 text-red-600 uppercase">POSH</span>
+            <span class="text-[10px] font-mono text-gray-400">SAFETY</span>
+          </div>
+          <h5 class="text-sm font-bold text-gray-900 mb-2">Policy on Sexual Harassment</h5>
+          <p class="text-xs text-gray-600 leading-relaxed mb-4">Zero tolerance policy ensuring a safe workplace</p>
+          <div class="pt-3 border-t border-gray-100">
+            <div class="flex justify-between items-center text-[10px] text-gray-500 mb-1">
+              <span class="flex items-center">
+                <i class="ri-flashlight-line mr-1 text-secondary"></i>
+                Safety Index
+              </span>
+              <span class="font-mono text-primary font-bold">100%</span>
+            </div>
+            <div class="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-primary to-secondary" style="width: 100%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Node 6: Occupational Health & Safety Policy -->
+      <div class="conduct-node absolute pointer-events-auto cursor-pointer transition-all duration-700 ease-out" data-index="5" style="left: 50%; top: 50%; width: 0; height: 0;">
+        <div class="absolute w-16 h-16 rounded-full bg-primary/5 -translate-x-1/2 -translate-y-1/2 animate-pulse pointer-events-none"></div>
+        <div class="node-circle w-12 h-12 rounded-full bg-white text-primary border border-primary/20 flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-125 transition-all duration-300 -translate-x-1/2 -translate-y-1/2">
+          <i class="ri-health-book-line text-lg"></i>
+        </div>
+        <div class="node-title absolute top-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-[11px] font-bold text-gray-700 tracking-wider bg-white/80 backdrop-blur-sm px-2 py-0.5 rounded shadow-sm border border-gray-100">
+          Health & Safety
+        </div>
+        <div class="node-card hidden absolute top-14 left-1/2 -translate-x-1/2 w-64 md:w-72 bg-white border border-gray-200/80 shadow-2xl rounded-xl p-5 z-50 text-gray-800 transition-all duration-300">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-px h-3 bg-gray-300"></div>
+          <div class="flex justify-between items-center mb-2">
+            <span class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-primary/10 text-primary uppercase">OHSAS</span>
+            <span class="text-[10px] font-mono text-gray-400">HEALTH</span>
+          </div>
+          <h5 class="text-sm font-bold text-gray-900 mb-2">Occupational Health & Safety Policy</h5>
+          <p class="text-xs text-gray-600 leading-relaxed mb-4">Ensuring workplace safety and health protection</p>
+          <div class="pt-3 border-t border-gray-100">
+            <div class="flex justify-between items-center text-[10px] text-gray-500 mb-1">
+              <span class="flex items-center">
+                <i class="ri-flashlight-line mr-1 text-secondary"></i>
+                Compliance Level
+              </span>
+              <span class="font-mono text-primary font-bold">100%</span>
+            </div>
+            <div class="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-primary to-secondary" style="width: 100%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Node 7: Whistleblower Policy -->
+      <div class="conduct-node absolute pointer-events-auto cursor-pointer transition-all duration-700 ease-out" data-index="6" style="left: 50%; top: 50%; width: 0; height: 0;">
+        <div class="absolute w-16 h-16 rounded-full bg-primary/5 -translate-x-1/2 -translate-y-1/2 animate-pulse pointer-events-none"></div>
+        <div class="node-circle w-12 h-12 rounded-full bg-white text-primary border border-primary/20 flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-125 transition-all duration-300 -translate-x-1/2 -translate-y-1/2">
+          <i class="ri-megaphone-line text-lg"></i>
+        </div>
+        <div class="node-title absolute top-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-[11px] font-bold text-gray-700 tracking-wider bg-white/80 backdrop-blur-sm px-2 py-0.5 rounded shadow-sm border border-gray-100">
+          Whistleblower
+        </div>
+        <div class="node-card hidden absolute top-14 left-1/2 -translate-x-1/2 w-64 md:w-72 bg-white border border-gray-200/80 shadow-2xl rounded-xl p-5 z-50 text-gray-800 transition-all duration-300">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-px h-3 bg-gray-300"></div>
+          <div class="flex justify-between items-center mb-2">
+            <span class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-primary/10 text-primary uppercase">Reporting</span>
+            <span class="text-[10px] font-mono text-gray-400">WHISTLEBLOWER</span>
+          </div>
+          <h5 class="text-sm font-bold text-gray-900 mb-2">Whistleblower Policy</h5>
+          <p class="text-xs text-gray-600 leading-relaxed mb-4">Protected channels for reporting concerns</p>
+          <div class="pt-3 border-t border-gray-100">
+            <div class="flex justify-between items-center text-[10px] text-gray-500 mb-1">
+              <span class="flex items-center">
+                <i class="ri-flashlight-line mr-1 text-secondary"></i>
+                Protection Level
+              </span>
+              <span class="font-mono text-primary font-bold">100%</span>
+            </div>
+            <div class="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-primary to-secondary" style="width: 100%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('orbital-container');
+  if (!container) return;
+  const nodes = document.querySelectorAll('.conduct-node');
+  const centerNode = document.getElementById('center-node');
+
+  let rotationAngle = 0;
+  let autoRotate = true;
+  let activeNodeIndex = null;
+  let animationFrameId = null;
+
+  // Responsive radius calculation
+  const getRadius = () => {
+    return window.innerWidth < 768 ? 135 : 220;
+  };
+
+  const updatePositions = () => {
+    const radius = getRadius();
+    const total = nodes.length;
+
+    nodes.forEach((node, idx) => {
+      // Calculate angle for this node
+      const angle = ((idx / total) * 360 + rotationAngle) % 360;
+      const radian = (angle * Math.PI) / 180;
+
+      const x = radius * Math.cos(radian);
+      const y = radius * Math.sin(radian);
+
+      // Calculate depth effect (zIndex and opacity based on angle)
+      const zIndex = Math.round(100 + 50 * Math.sin(radian));
+      const opacity = 0.75 + 0.25 * ((1 + Math.sin(radian)) / 2);
+
+      const circle = node.querySelector('.node-circle');
+
+      node.style.transform = `translate(${x}px, ${y}px)`;
+      node.style.zIndex = node.classList.contains('active') ? '200' : zIndex;
+      node.style.opacity = node.classList.contains('active') ? '1' : opacity;
+
+      const scale = node.classList.contains('active') ? 1.3 : (0.8 + 0.25 * ((1 + Math.sin(radian)) / 2));
+      circle.style.transform = `translate(-50%, -50%) scale(${scale})`;
+
+      // Handle programmatic layout of the detail cards (mobile vs desktop)
+      if (node.classList.contains('active')) {
+        const card = node.querySelector('.node-card');
+        if (window.innerWidth < 768) {
+          card.style.left = `${-x}px`;
+          card.style.top = `${180 - y}px`;
+          card.style.transform = 'translate(-50%, -50%) scale(0.95)';
+        } else {
+          card.style.left = '50%';
+          card.style.top = '56px';
+          card.style.transform = 'translate(-50%, 0) scale(1)';
+        }
+      }
+    });
+  };
+
+  const animate = () => {
+    if (autoRotate) {
+      rotationAngle = (rotationAngle + 0.2) % 360;
+      updatePositions();
+    }
+    animationFrameId = requestAnimationFrame(animate);
+  };
+
+  // Interactive nodes click behaviors
+  nodes.forEach((node, idx) => {
+    node.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isActive = node.classList.contains('active');
+
+      // Close all cards first
+      nodes.forEach(n => {
+        n.classList.remove('active');
+        n.querySelector('.node-card').classList.add('hidden');
+        n.querySelector('.node-circle').classList.remove('bg-primary', 'text-white', 'border-secondary');
+        n.querySelector('.node-circle').classList.add('bg-white', 'text-primary');
+      });
+
+      if (!isActive) {
+        node.classList.add('active');
+        node.querySelector('.node-card').classList.remove('hidden');
+        node.querySelector('.node-circle').classList.remove('bg-white', 'text-primary');
+        node.querySelector('.node-circle').classList.add('bg-primary', 'text-white', 'border-secondary');
+        autoRotate = false;
+        activeNodeIndex = idx;
+
+        // Snap/align clicked node towards bottom/front
+        const targetAngle = 90 - (idx / nodes.length) * 360;
+        rotationAngle = (targetAngle + 360) % 360;
+        updatePositions();
+      } else {
+        autoRotate = true;
+        activeNodeIndex = null;
+      }
+    });
+  });
+
+  // Close card when clicking on the center node or document backdrop
+  const closeAll = () => {
+    if (activeNodeIndex !== null) {
+      nodes.forEach(n => {
+        n.classList.remove('active');
+        n.querySelector('.node-card').classList.add('hidden');
+        n.querySelector('.node-circle').classList.remove('bg-primary', 'text-white', 'border-secondary');
+        n.querySelector('.node-circle').classList.add('bg-white', 'text-primary');
+      });
+      autoRotate = true;
+      activeNodeIndex = null;
+      updatePositions();
+    }
+  };
+
+  document.addEventListener('click', closeAll);
+  centerNode.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeAll();
+  });
+
+  window.addEventListener('resize', updatePositions);
+  animate();
+});
+</script>
+</section>
+</div>
+</section>
+</div>
+</section>
+<!-- Clients Section -->
+<section id="clients" class="py-20 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="text-sm font-bold text-secondary uppercase tracking-wider mb-2">Our Network</h2>
+<h3 class="text-3xl md:text-4xl font-black text-gray-900 mb-4">Associated Paint Manufacturers</h3>
+<p class="text-gray-600">
+We are proud to work with leading international and national paint manufacturers to deliver high-quality, long-lasting protective coatings.
+</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-items-center">
+<!-- Brand 1 -->
+<div class="bg-gray-50 hover:bg-gray-100/80 transition-all p-6 rounded-xl border border-gray-100 flex items-center justify-center h-28 w-full shadow-sm hover:shadow-md">
+<span class="text-gray-700 font-bold text-lg tracking-wider text-center">ATUL LTD</span>
+</div>
+<!-- Brand 2 -->
+<div class="bg-gray-50 hover:bg-gray-100/80 transition-all p-6 rounded-xl border border-gray-100 flex items-center justify-center h-28 w-full shadow-sm hover:shadow-md">
+<span class="text-gray-700 font-bold text-lg tracking-wider text-center">AKZONOBEL INTERNATIONAL</span>
+</div>
+<!-- Brand 3 -->
+<div class="bg-gray-50 hover:bg-gray-100/80 transition-all p-6 rounded-xl border border-gray-100 flex items-center justify-center h-28 w-full shadow-sm hover:shadow-md">
+<span class="text-gray-700 font-bold text-lg tracking-wider text-center">ASIAN PAINTS</span>
+</div>
+<!-- Brand 4 -->
+<div class="bg-gray-50 hover:bg-gray-100/80 transition-all p-6 rounded-xl border border-gray-100 flex items-center justify-center h-28 w-full shadow-sm hover:shadow-md">
+<span class="text-gray-700 font-bold text-lg tracking-wider text-center">HTD NextGen</span>
+</div>
+<!-- Brand 5 -->
+<div class="bg-gray-50 hover:bg-gray-100/80 transition-all p-6 rounded-xl border border-gray-100 flex items-center justify-center h-28 w-full shadow-sm hover:shadow-md">
+<span class="text-gray-700 font-bold text-lg tracking-wider text-center">PPG-SIGMA</span>
+</div>
+<!-- Brand 6 -->
+<div class="bg-gray-50 hover:bg-gray-100/80 transition-all p-6 rounded-xl border border-gray-100 flex items-center justify-center h-28 w-full shadow-sm hover:shadow-md">
+<span class="text-gray-700 font-bold text-lg tracking-wider text-center">BERGER PAINTS</span>
+</div>
+<!-- Brand 7 -->
+<div class="bg-gray-50 hover:bg-gray-100/80 transition-all p-6 rounded-xl border border-gray-100 flex items-center justify-center h-28 w-full shadow-sm hover:shadow-md">
+<span class="text-gray-700 font-bold text-lg tracking-wider text-center">HEMPEL PAINTS</span>
+</div>
+<!-- Brand 8 -->
+<div class="bg-gray-50 hover:bg-gray-100/80 transition-all p-6 rounded-xl border border-gray-100 flex items-center justify-center h-28 w-full shadow-sm hover:shadow-md">
+<span class="text-gray-700 font-bold text-lg tracking-wider text-center">JOTUN</span>
+</div>
+<!-- Brand 9 -->
+<div class="bg-gray-50 hover:bg-gray-100/80 transition-all p-6 rounded-xl border border-gray-100 flex items-center justify-center h-28 w-full shadow-sm hover:shadow-md">
+<span class="text-gray-700 font-bold text-base tracking-wider text-center">KIRLOSKAR CORROCOAT</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-gray-50 relative z-20">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 gap-8">
+<!-- Contact Form -->
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-20 bg-primary">
+<div class="container mx-auto px-4 text-center">
+<h2 class="text-3xl md:text-4xl font-black text-white mb-6">Ready to Protect Your Industrial Assets?</h2>
+<p class="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+Partner with The dR India for comprehensive industrial coating and asset protection solutions that extend equipment life and reduce maintenance costs.
+</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a href="#contact" class="bg-white text-primary rounded-button px-8 py-3 font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">
+Contact Us Today
+</a>
+<a href="#services" class="bg-transparent border-2 border-white text-white rounded-button px-8 py-3 font-medium hover:bg-white/10 transition-colors whitespace-nowrap">
+Explore Our Services
+</a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white pt-16 pb-8">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+<div>
+<a href="MAIN-HOMEPAGE (2).html" data-readdy="true" class="text-2xl font-bold font-inter text-white mb-4 inline-block tracking-wide">DR India</a>
+<p class="text-gray-400 mb-6">
+Protecting industrial infrastructure with precision since 1994. NACE certified, ISO 9001/14001/45001 compliant.
+</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-linkedin-fill"></i>
+</div>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-facebook-fill"></i>
+</div>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-twitter-x-fill"></i>
+</div>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-instagram-fill"></i>
+</div>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-4">Quick Links</h4>
+<ul class="space-y-3">
+<li><a href="MAIN-HOMEPAGE (2).html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+<li><a href="About-Our-Expert-Team (5).html" data-readdy="true" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+<li><a href="Services-Offered-Page (1).html" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+<li><a href="#projects" class="text-gray-400 hover:text-white transition-colors">Projects</a></li>
+<li><a href="Certifications-Showcase-Page (2).html" class="text-gray-400 hover:text-white transition-colors">Certifications</a></li>
+<li><a href="#clients" class="text-gray-400 hover:text-white transition-colors">Clients</a></li>
+<li><a href="Contact-Us (3).html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-4">Our Services</h4>
+<ul class="space-y-3">
+<li><a href="Services-Offered-Page (1).html" class="text-gray-400 hover:text-white transition-colors">Anti-Corrosive Painting</a></li>
+<li><a href="Services-Offered-Page (1).html" class="text-gray-400 hover:text-white transition-colors">Wet-Abrasive Blasting</a></li>
+<li><a href="Services-Offered-Page (1).html" class="text-gray-400 hover:text-white transition-colors">High Performance Coating</a></li>
+<li><a href="Services-Offered-Page (1).html" class="text-gray-400 hover:text-white transition-colors">Acid Proof Lining</a></li>
+<li><a href="Services-Offered-Page (1).html" class="text-gray-400 hover:text-white transition-colors">Floor Coating</a></li>
+<li><a href="Services-Offered-Page (1).html" class="text-gray-400 hover:text-white transition-colors">Metallizing & Galvanizing</a></li>
+<li><a href="Services-Offered-Page (1).html" class="text-gray-400 hover:text-white transition-colors">Corrosion Audits</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-500 text-sm mb-4 md:mb-0">
+&copy; 2025 The dR India. All rights reserved.
+</p>
+</div>
+</div>
+</div>
+</footer>
+<!-- Scripts -->
+<script id="mobile-menu-script">
+document.addEventListener('DOMContentLoaded', function() {
+// Initialize fade-in animations
+const initFadeInAnimations = () => {
+const fadeElements = document.querySelectorAll('.service-card, .stat-card, section > .container > div, .project-card');
+fadeElements.forEach(element => {
+element.classList.add('fade-in-element');
+});
+const staggerElements = document.querySelectorAll('.grid');
+staggerElements.forEach(element => {
+element.classList.add('stagger-children');
+});
+const observerOptions = {
+threshold: 0.2,
+rootMargin: '0px 0px -50px 0px'
+};
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+observer.unobserve(entry.target);
+}
+});
+}, observerOptions);
+document.querySelectorAll('.fade-in-element, .stagger-children').forEach(element => {
+observer.observe(element);
+});
+};
+// Call the initialization function
+initFadeInAnimations();
+// Hero Section Slideshow
+const initHeroSlideshow = () => {
+const slideshow = document.getElementById('hero-slideshow');
+if (!slideshow) return;
+const slides = slideshow.querySelectorAll('div[class*="bg-[url"]');
+if (slides.length < 2) return;
+let currentSlide = 0;
+const showSlide = (index) => {
+slides.forEach((slide, i) => {
+slide.style.opacity = i === index ? '1' : '0';
+});
+};
+const nextSlide = () => {
+currentSlide = (currentSlide + 1) % slides.length;
+showSlide(currentSlide);
+};
+// Initial state
+showSlide(0);
+// Start slideshow
+setInterval(nextSlide, 3000);
+};
+initHeroSlideshow();
+// Parallax effect for floating elements
+const handleScroll = () => {
+const scrolled = window.pageYOffset;
+const floatingElements = document.querySelectorAll('.floating-element');
+floatingElements.forEach((element, index) => {
+const speed = 0.15 * (index + 1);
+const yPos = -(scrolled * speed);
+const xPos = Math.sin(scrolled * 0.002 + index) * 30;
+const rotation = Math.sin(scrolled * 0.001 + index) * 15;
+const scale = 1 + Math.sin(scrolled * 0.002 + index) * 0.1;
+element.style.transform = `translate3d(${xPos}px, ${yPos}px, 0) rotate(${rotation}deg) scale(${scale})`;
+});
+};
+window.addEventListener('scroll', handleScroll);
+// Code of Conduct Section Animations
+const animateElements = document.querySelectorAll('[data-animate]');
+const conductItems = document.querySelectorAll('[data-conduct-item]');
+const observerAnimate = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.style.opacity = '1';
+entry.target.style.transform = 'translateY(0)';
+observerAnimate.unobserve(entry.target);
+}
+});
+}, { threshold: 0.2 });
+animateElements.forEach(element => observerAnimate.observe(element));
+const observerConductItems = new IntersectionObserver((entries) => {
+entries.forEach((entry, index) => {
+if (entry.isIntersecting) {
+setTimeout(() => {
+entry.target.style.opacity = '1';
+entry.target.style.transform = 'translateY(0)';
+}, index * 100);
+observerConductItems.unobserve(entry.target);
+}
+});
+}, { threshold: 0.1 });
+conductItems.forEach(item => observerConductItems.observe(item));
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+if (mobileMenuButton && mobileMenu) {
+mobileMenuButton.addEventListener('click', () => {
+mobileMenu.classList.toggle('hidden');
+});
+const mobileLinks = mobileMenu.querySelectorAll('a');
+mobileLinks.forEach(link => {
+link.addEventListener('click', () => {
+mobileMenu.classList.add('hidden');
+});
+});
+}
+// Contact form handling
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+contactForm.addEventListener('submit', function(e) {
+e.preventDefault();
+const formData = new FormData(contactForm);
+const data = {};
+formData.forEach((value, key) => data[key] = value);
+// Show success message
+const successMessage = document.createElement('div');
+successMessage.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-fade-in-up';
+successMessage.innerHTML = `
+<div class="flex items-center">
+<div class="w-6 h-6 flex items-center justify-center mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Thank you! Your message has been sent successfully.</span>
+</div>
+`;
+document.body.appendChild(successMessage);
+// Remove success message after 5 seconds
+setTimeout(() => {
+successMessage.remove();
+}, 5000);
+// Reset form
+contactForm.reset();
+});
+}
+const headlines = document.querySelectorAll('h1, h2, h3:not(.text-sm)');
+if (headlines.length > 0) {
+const observerHeadlines = new IntersectionObserver(
+(entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('animate-headline', 'animated');
+observerHeadlines.unobserve(entry.target);
+}
+});
+},
+{ threshold: 0.2, rootMargin: '0px' }
+);
+headlines.forEach(headline => observerHeadlines.observe(headline));
+}
+const sections = document.querySelectorAll('section');
+if (sections.length > 0) {
+let activeSection = null;
+const sectionObserver = new IntersectionObserver(
+(entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+const ratio = entry.intersectionRatio;
+if (ratio > 0.5 || !activeSection) {
+if (activeSection) activeSection.classList.remove('active');
+entry.target.classList.add('active');
+activeSection = entry.target;
+}
+} else if (entry.target === activeSection) {
+entry.target.classList.remove('active');
+activeSection = null;
+const visibleSections = Array.from(sections).filter(s =>
+s.getBoundingClientRect().top < window.innerHeight &&
+s.getBoundingClientRect().bottom > 0
+);
+if (visibleSections.length > 0) {
+visibleSections[0].classList.add('active');
+activeSection = visibleSections[0];
+}
+}
+});
+},
+{
+threshold: [0, 0.25, 0.5, 0.75, 1],
+rootMargin: '-10% 0px -10% 0px'
+}
+);
+sections.forEach(section => sectionObserver.observe(section));
+}
+});
+</script>
+<script id="carousel-script">
+document.addEventListener('DOMContentLoaded', function() {
+const initCarousel = () => {
+const container = document.getElementById('carousel-container');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const indicators = document.getElementById('carousel-indicators');
+const indicatorButtons = indicators?.querySelectorAll('button') || [];
+if (!container || !prevBtn || !nextBtn) return;
+let currentIndex = 0;
+const items = Array.from(container.children);
+if (!items.length) return;
+const getVisibleItems = () => window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
+let visibleItems = getVisibleItems();
+const getMaxIndex = () => Math.max(0, Math.ceil(items.length / visibleItems) - 1);
+const updateCarousel = () => {
+const itemWidth = items[0].offsetWidth;
+if (!itemWidth) return;
+const offset = -currentIndex * (itemWidth * visibleItems);
+container.style.transform = `translateX(${offset}px)`;
+indicatorButtons.forEach((indicator, index) => {
+indicator.classList.toggle('bg-primary', index === currentIndex);
+indicator.classList.toggle('bg-gray-300', index !== currentIndex);
+});
+};
+const handlePrevClick = () => {
+currentIndex = Math.max(0, currentIndex - 1);
+updateCarousel();
+};
+const handleNextClick = () => {
+currentIndex = Math.min(getMaxIndex(), currentIndex + 1);
+updateCarousel();
+};
+prevBtn.addEventListener('click', handlePrevClick);
+nextBtn.addEventListener('click', handleNextClick);
+indicatorButtons.forEach((indicator, index) => {
+indicator.addEventListener('click', () => {
+currentIndex = Math.min(getMaxIndex(), index);
+updateCarousel();
+});
+});
+let resizeTimer;
+window.addEventListener('resize', () => {
+clearTimeout(resizeTimer);
+resizeTimer = setTimeout(() => {
+const newVisibleItems = getVisibleItems();
+if (newVisibleItems !== visibleItems) {
+visibleItems = newVisibleItems;
+currentIndex = Math.min(currentIndex, getMaxIndex());
+updateCarousel();
+}
+}, 250);
+});
+updateCarousel();
+};
+// Initialize carousel after a short delay to ensure DOM is ready
+setTimeout(initCarousel, 100);
+});
+</script>
+</body>
+</html>
