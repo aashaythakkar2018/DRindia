@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - The dR India</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{primary:'#1A3E5F',secondary:'#C1440E'},borderRadius:{'none':'0px','sm':'8px',DEFAULT:'12px','md':'16px','lg':'20px','xl':'24px','2xl':'28px','3xl':'32px','full':'9999px','button':'12px'}}}}
+</script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+@keyframes float {
+0%, 100% {
+transform: translateY(0);
+}
+50% {
+transform: translateY(-10px);
+}
+}
+.animate-float {
+animation: float 3s ease-in-out infinite;
+}
+img.animate-float {
+animation: float 3s ease-in-out infinite;
+}
+body {
+font-family: 'Inter', sans-serif;
+color: #333;
+position: relative;
+}
+.floating-elements {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+pointer-events: none;
+z-index: 0;
+overflow: hidden;
+}
+.floating-element {
+position: absolute;
+opacity: 0.15;
+transform: translateY(0);
+transition: transform 0.5s ease-out;
+color: #1A3E5F;
+background: linear-gradient(45deg, #1A3E5F 0%, #C1440E 100%);
+-webkit-background-clip: text;
+background-clip: text;
+text-fill-color: transparent;
+-webkit-text-fill-color: transparent;
+}
+.floating-paint {
+font-size: 96px;
+animation: float 25s infinite linear;
+}
+.floating-brush {
+font-size: 72px;
+animation: float 30s infinite linear;
+}
+.floating-drop {
+font-size: 48px;
+animation: float 20s infinite linear;
+}
+@keyframes float {
+0% {
+transform: translate(0, 0) rotate(0deg);
+}
+25% {
+transform: translate(50px, 50px) rotate(90deg);
+}
+50% {
+transform: translate(0, 100px) rotate(180deg);
+}
+75% {
+transform: translate(-50px, 50px) rotate(270deg);
+}
+100% {
+transform: translate(0, 0) rotate(360deg);
+}
+}
+h1, h2, h3, h4, .font-agrandir {
+font-family: 'agrandir-bold', sans-serif;
+letter-spacing: 0.025em;
+}
+.font-inter {
+font-family: 'Inter', sans-serif;
+}
+@font-face {
+font-family: 'agrandir-bold';
+src: url('https://public.readdy.ai/fonts/Agrandir/Agrandir-GrandHeavy.woff2') format('woff2');
+font-weight: bold;
+font-style: normal;
+font-display: swap;
+}
+.hero-section {
+background-image: linear-gradient(to right, rgba(26, 62, 95, 0.9), rgba(26, 62, 95, 0.7), rgba(26, 62, 95, 0.5), rgba(26, 62, 95, 0.3), rgba(26, 62, 95, 0.1)), url('https://static.readdy.ai/image/b262a2b76905a2198fef3b5c4022af50/4df29489f2dfce49b0ff247a82cd9d88.png');
+background-size: cover;
+background-position: center right;
+}
+.team-card:hover .team-social {
+opacity: 1;
+transform: translateY(0);
+}
+.team-social {
+opacity: 0;
+transform: translateY(10px);
+transition: all 0.3s ease;
+}
+.timeline-dot::before {
+content: '';
+position: absolute;
+top: 0;
+bottom: 0;
+left: 15px;
+width: 2px;
+background-color: #e5e7eb;
+z-index: -1;
+}
+.timeline-item:last-child .timeline-dot::before {
+display: none;
+}
+.custom-checkbox {
+appearance: none;
+-webkit-appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #1A3E5F;
+border-radius: 4px;
+outline: none;
+cursor: pointer;
+position: relative;
+}
+.custom-checkbox:checked {
+background-color: #1A3E5F;
+}
+.custom-checkbox:checked::after {
+content: '';
+position: absolute;
+top: 3px;
+left: 6px;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.value-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+@keyframes fadeInUp {
+0% {
+opacity: 0;
+transform: translateY(30px);
+}
+100% {
+opacity: 1;
+transform: translateY(0);
+}
+}
+.animate-fadeInUp {
+animation: fadeInUp 0.6s ease-out forwards;
+}
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+.animate-delay-400 { animation-delay: 0.4s; }
+.animate-delay-500 { animation-delay: 0.5s; }
+</style>
+</head>
+<body class="bg-white">
+<div class="floating-elements">
+<i class="ri-palette-fill floating-element floating-paint" style="top: 15%; left: 10%;"></i>
+<i class="ri-brush-3-fill floating-element floating-brush" style="top: 25%; left: 85%;"></i>
+<i class="ri-paint-brush-fill floating-element floating-drop" style="top: 45%; left: 15%;"></i>
+<i class="ri-contrast-2-fill floating-element floating-paint" style="top: 65%; left: 80%;"></i>
+<i class="ri-drop-fill floating-element floating-brush" style="top: 85%; left: 25%;"></i>
+<i class="ri-brush-2-fill floating-element floating-drop" style="top: 35%; left: 75%;"></i>
+<i class="ri-paint-fill floating-element floating-paint" style="top: 75%; left: 45%;"></i>
+<i class="ri-pencil-ruler-2-fill floating-element floating-brush" style="top: 15%; left: 65%;"></i>
+<i class="ri-tools-fill floating-element floating-drop" style="top: 55%; left: 35%;"></i>
+<i class="ri-ruler-2-fill floating-element floating-paint" style="top: 85%; left: 90%;"></i>
+</div>
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+<div class="container mx-auto px-4 py-3 flex items-center">
+<div class="flex items-center w-1/4">
+<a href="MAIN-HOMEPAGE (2).html" data-readdy="true">
+<img src="https://static.readdy.ai/image/b262a2b76905a2198fef3b5c4022af50/2e9c2cfea88965c15f421bed9f109214.png" alt="dR India Logo" class="h-32 w-auto">
+</a>
+</div>
+<nav class="hidden lg:flex items-center justify-center space-x-12 flex-1">
+<a href="MAIN-HOMEPAGE (2).html" data-readdy="true" class="text-gray-800 font-medium relative group">
+<span class="relative z-10">Home</span>
+<span class="absolute inset-0 bg-gray-900 transform scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100 opacity-10"></span>
+</a>
+<a href="About-Our-Expert-Team (5).html" data-readdy="true" class="text-gray-800 font-medium relative group">
+<span class="relative z-10">About Us</span>
+<span class="absolute inset-0 bg-gray-900 transform scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100 opacity-10"></span>
+</a>
+<a href="Services-Offered-Page (1).html" data-readdy="true" class="text-gray-800 font-medium relative group">
+<span class="relative z-10">Services</span>
+<span class="absolute inset-0 bg-gray-900 transform scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100 opacity-10"></span>
+</a>
+<a href="Certifications-Showcase-Page (2).html" class="text-gray-800 font-medium relative group">
+<span class="relative z-10">Awards & Achievement</span>
+<span class="absolute inset-0 bg-gray-900 transform scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100 opacity-10"></span>
+</a>
+</nav>
+<div class="flex items-center justify-end w-1/4 space-x-4">
+<a href="Contact-Us (3).html" data-readdy="true" class="bg-primary text-white rounded-button px-6 py-2 hover:bg-primary/90 transition-colors whitespace-nowrap inline-block">
+Contact Us
+</a>
+<button class="lg:hidden w-10 h-10 flex items-center justify-center text-gray-700" id="mobile-menu-button">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-menu-line ri-xl"></i>
+</div>
+</button>
+</div>
+</div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="lg:hidden hidden bg-white border-t border-gray-100 shadow-lg">
+<div class="container mx-auto px-4 py-3">
+<nav class="flex flex-col space-y-3">
+<a href="MAIN-HOMEPAGE (2).html" data-readdy="true" class="text-gray-800 font-medium py-2 hover:text-primary transition-colors">Home</a>
+<a href="About-Our-Expert-Team (5).html" data-readdy="true" class="text-primary font-medium py-2">About Us</a>
+<a href="Services-Offered-Page (1).html" data-readdy="true" class="text-gray-800 font-medium py-2 hover:text-primary transition-colors">Services</a>
+<a href="MAIN-HOMEPAGE (2).html#projects" class="text-gray-800 font-medium py-2 hover:text-primary transition-colors">Projects</a>
+<a href="Certifications-Showcase-Page (2).html" class="text-gray-800 font-medium py-2 hover:text-primary transition-colors">Certifications</a>
+<a href="MAIN-HOMEPAGE (2).html#clients" class="text-gray-800 font-medium py-2 hover:text-primary transition-colors">Clients</a>
+<a href="Contact-Us (3).html" class="text-gray-800 font-medium py-2 hover:text-primary transition-colors">Contact</a>
+</nav>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="hero-section min-h-[800px] flex items-center pt-[200px] pb-[150px] relative overflow-hidden bg-center bg-cover bg-[center_center] bg-fixed" style="background-size: 120% auto;">
+<div class="container mx-auto px-4 py-8 w-full relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="lg:pr-12">
+<div class="relative mb-8">
+<div class="absolute -top-4 -left-4 w-24 h-24 bg-white/10 rounded-full blur-lg"></div>
+<span class="text-secondary font-medium text-sm uppercase tracking-wider relative">Welcome to dR India</span>
+</div>
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-agrandir text-white leading-tight mb-6 tracking-wide opacity-0 animate-fadeInUp">
+Protecting Industry, <br>
+<span class="text-secondary">Preserving Future</span>
+</h1>
+<p class="text-xl text-white/90 mb-8 max-w-xl opacity-0 animate-fadeInUp animate-delay-200">
+For over 30 years, we've been the trusted partner in industrial coatings and asset management, delivering unparalleled protection for critical infrastructure.
+</p>
+<div class="flex flex-wrap gap-4 opacity-0 animate-fadeInUp animate-delay-300">
+<a href="#team" class="bg-secondary border-2 border-secondary text-white rounded-button px-8 py-4 font-medium hover:bg-secondary/90 transition-colors whitespace-nowrap group">
+<span class="inline-flex items-center">
+Get Started
+<div class="w-5 h-5 flex items-center justify-center ml-2 transform group-hover:translate-x-1 transition-transform">
+<i class="ri-arrow-right-line"></i>
+</div>
+</span>
+</a>
+<a href="#mission" class="bg-white/10 backdrop-blur-sm border-2 border-white/20 text-white rounded-button px-8 py-4 font-medium hover:bg-white/20 transition-colors whitespace-nowrap group">
+<span class="inline-flex items-center">
+Learn More
+<div class="w-5 h-5 flex items-center justify-center ml-2 transform group-hover:translate-x-1 transition-transform">
+<i class="ri-arrow-right-line"></i>
+</div>
+</span>
+</a>
+</div>
+</div>
+<div class="relative hidden lg:block">
+<div class="absolute -top-8 -right-8 w-64 h-64 bg-secondary/20 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-8 -left-8 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Mission & Vision Section -->
+<section id="mission" class="py-20 bg-white">
+<div class="container mx-auto px-4">
+<div class="relative">
+<div class="absolute -inset-x-32 inset-y-0 bg-gradient-to-br from-primary/5 to-secondary/5 transform -skew-y-6"></div>
+<div class="relative py-12">
+<div class="text-center mb-16">
+<div class="inline-block relative">
+<h2 class="text-sm font-semibold text-secondary uppercase tracking-wider mb-2 relative z-10">Our Mission & Vision</h2>
+</div>
+<h3 class="text-3xl md:text-4xl font-agrandir font-bold text-gray-900 mb-4">Protecting Infrastructure, Preserving Value</h3>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+<div class="lg:col-span-5 lg:order-2">
+<div class="relative h-full">
+<div class="absolute -top-4 -right-4 w-32 h-32 bg-secondary/10 rounded-lg"></div>
+<div class="relative h-full">
+<img src="https://static.readdy.ai/image/b262a2b76905a2198fef3b5c4022af50/d04a9719c9305c46660adcaf3ff8d79d.jfif"
+alt="Strategic Planning Meeting"
+class="rounded-xl shadow-xl w-full h-full object-cover">
+<div class="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/10 rounded-lg -z-10"></div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 lg:order-1">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-white rounded-xl shadow-lg p-8 relative group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+<div class="absolute -top-6 right-8 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white transform group-hover:rotate-12 transition-transform">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-flag-line"></i>
+</div>
+</div>
+<h4 class="text-xl font-bold text-gray-900 mb-4">Our Mission</h4>
+<p class="text-gray-700">
+To deliver innovative, high-quality industrial coating solutions that extend asset life, reduce maintenance costs, and enhance operational efficiency for our clients while maintaining the highest standards of safety and environmental responsibility.
+</p>
+</div>
+<div class="bg-white rounded-xl shadow-lg p-8 relative group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+<div class="absolute -top-6 right-8 w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-white transform group-hover:rotate-12 transition-transform">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-eye-line"></i>
+</div>
+</div>
+<h4 class="text-xl font-bold text-gray-900 mb-4">Our Vision</h4>
+<p class="text-gray-700">
+To be the most trusted partner in industrial asset protection across Asia, recognized for technical excellence, innovation, and unwavering commitment to customer success.
+</p>
+</div>
+<div class="md:col-span-2 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-xl p-8 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-white/20 rounded-full transform translate-x-32 -translate-y-32"></div>
+<div class="relative">
+<h4 class="text-xl font-bold text-gray-900 mb-4">Our Certifications</h4>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="flex items-center bg-white/60 rounded-lg p-4 backdrop-blur-sm">
+<div class="w-8 h-8 flex items-center justify-center text-primary mr-3">
+<i class="ri-shield-check-line"></i>
+</div>
+<span class="font-medium text-gray-900">ISO 9001</span>
+</div>
+<div class="flex items-center bg-white/60 rounded-lg p-4 backdrop-blur-sm">
+<div class="w-8 h-8 flex items-center justify-center text-primary mr-3">
+<i class="ri-shield-check-line"></i>
+</div>
+<span class="font-medium text-gray-900">ISO 14001</span>
+</div>
+<div class="flex items-center bg-white/60 rounded-lg p-4 backdrop-blur-sm">
+<div class="w-8 h-8 flex items-center justify-center text-primary mr-3">
+<i class="ri-shield-check-line"></i>
+</div>
+<span class="font-medium text-gray-900">ISO 45001</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Company History Section -->
+<section class="py-20 bg-white relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-full">
+<div class="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-primary/5 to-transparent"></div>
+<div class="absolute bottom-0 right-0 w-full h-64 bg-gradient-to-t from-secondary/5 to-transparent"></div>
+</div>
+<div class="container mx-auto px-4 relative z-10">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<div class="inline-block relative mb-2">
+<div class="bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 rounded-full px-8 py-2">
+<h2 class="text-sm font-semibold text-secondary uppercase tracking-wider">Our Journey</h2>
+</div>
+</div>
+<h3 class="text-3xl md:text-4xl font-agrandir font-bold text-gray-900 mb-4">Three Decades of Excellence</h3>
+</div>
+<div class="relative">
+<div class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-primary transform -translate-x-1/2"></div>
+<div class="grid grid-cols-1 gap-y-16">
+<!-- 1994 -->
+<div class="relative group" data-year="1994">
+<div class="flex items-center justify-center mb-8">
+<div class="w-20 h-20 bg-white rounded-full border-4 border-primary flex items-center justify-center z-10 shadow-xl transform group-hover:scale-110 transition-transform duration-300">
+<span class="text-primary font-bold">1994</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+<div class="order-2 md:order-1">
+<div class="bg-white rounded-xl shadow-lg p-6 transform hover:-translate-y-2 transition-transform duration-300">
+<div class="flex items-center mb-4">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+<div class="w-5 h-5 flex items-center justify-center text-primary">
+<i class="ri-flag-line"></i>
+</div>
+</div>
+<h4 class="text-xl font-semibold text-gray-900">Foundation</h4>
+</div>
+<p class="text-gray-600">
+The dR India was founded in Ankleshwar, Gujarat with a small team of 15 professionals focused on providing quality painting services to local chemical industries.
+</p>
+</div>
+</div>
+<div class="order-1 md:order-2">
+<img src="https://readdy.ai/api/search-image?query=professional%20industrial%20painters%20in%20safety%20equipment%20applying%20protective%20coating%20to%20large%20industrial%20storage%20tanks%2C%20warm%20evening%20lighting%2C%20high%20quality%20industrial%20photography%20showing%20detailed%20work%20and%20safety%20standards&width=400&height=300&seq=journey1&orientation=landscape"
+alt="Foundation"
+class="w-full h-64 object-cover rounded-xl shadow-lg">
+</div>
+</div>
+</div>
+<!-- 2000 -->
+<div class="relative group" data-year="2000">
+<div class="flex items-center justify-center mb-8">
+<div class="w-20 h-20 bg-white rounded-full border-4 border-primary flex items-center justify-center z-10 shadow-xl transform group-hover:scale-110 transition-transform duration-300">
+<span class="text-primary font-bold">2000</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+<div class="order-2">
+<img src="https://readdy.ai/api/search-image?query=modern%2520industrial%2520chemical%2520plant%2520with%2520large%2520storage%2520tanks%2520and%2520processing%2520units%2C%2520professional%2520industrial%2520photography%2520with%2520dramatic%2520lighting&width=400&height=300&seq=journey2&orientation=landscape"
+alt="First Major Project"
+class="w-full h-64 object-cover rounded-xl shadow-lg">
+</div>
+<div class="order-1">
+<div class="bg-white rounded-xl shadow-lg p-6 transform hover:-translate-y-2 transition-transform duration-300">
+<div class="flex items-center mb-4">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+<div class="w-5 h-5 flex items-center justify-center text-primary">
+<i class="ri-award-line"></i>
+</div>
+</div>
+<h4 class="text-xl font-semibold text-gray-900">First Major Project</h4>
+</div>
+<p class="text-gray-600">
+Secured our first major project with UPL Limited, marking the beginning of our expansion into larger industrial coating projects across Gujarat.
+</p>
+</div>
+</div>
+</div>
+</div>
+<!-- 2005 -->
+<div class="relative group" data-year="2005">
+<div class="flex items-center justify-center mb-8">
+<div class="w-20 h-20 bg-white rounded-full border-4 border-primary flex items-center justify-center z-10 shadow-xl transform group-hover:scale-110 transition-transform duration-300">
+<span class="text-primary font-bold">2005</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+<div class="order-2 md:order-1">
+<div class="bg-white rounded-xl shadow-lg p-6 transform hover:-translate-y-2 transition-transform duration-300">
+<div class="flex items-center mb-4">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+<div class="w-5 h-5 flex items-center justify-center text-primary">
+<i class="ri-global-line"></i>
+</div>
+</div>
+<h4 class="text-xl font-semibold text-gray-900">Expansion & Certification</h4>
+</div>
+<p class="text-gray-600">
+Achieved ISO 9001 certification and expanded operations to Mumbai and Ahmedabad, growing our team to over 100 professionals.
+</p>
+</div>
+</div>
+<div class="order-1 md:order-2">
+<img src="https://readdy.ai/api/search-image?query=modern%2520corporate%2520office%2520building%2520in%2520Mumbai%2520with%2520glass%2520facade%2C%2520professional%2520architectural%2520photography%2520with%2520blue%2520sky&width=400&height=300&seq=journey3&orientation=landscape"
+alt="Expansion"
+class="w-full h-64 object-cover rounded-xl shadow-lg">
+</div>
+</div>
+</div>
+<!-- 2010 -->
+<div class="relative group" data-year="2010">
+<div class="flex items-center justify-center mb-8">
+<div class="w-20 h-20 bg-white rounded-full border-4 border-primary flex items-center justify-center z-10 shadow-xl transform group-hover:scale-110 transition-transform duration-300">
+<span class="text-primary font-bold">2010</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+<div class="order-2">
+<img src="https://readdy.ai/api/search-image?query=professional%2520team%2520of%2520engineers%2520in%2520lab%2520coats%2520working%2520with%2520technical%2520equipment%2520in%2520a%2520modern%2520laboratory%2C%2520industrial%2520testing%2520facility%2520with%2520professional%2520lighting&width=400&height=300&seq=journey4&orientation=landscape"
+alt="Technical Leadership"
+class="w-full h-64 object-cover rounded-xl shadow-lg">
+</div>
+<div class="order-1">
+<div class="bg-white rounded-xl shadow-lg p-6 transform hover:-translate-y-2 transition-transform duration-300">
+<div class="flex items-center mb-4">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+<div class="w-5 h-5 flex items-center justify-center text-primary">
+<i class="ri-building-2-line"></i>
+</div>
+</div>
+<h4 class="text-xl font-semibold text-gray-900">Technical Leadership</h4>
+</div>
+<p class="text-gray-600">
+Became the first company in India to achieve NACE certification for our coating inspectors, establishing our technical leadership in the industry.
+</p>
+</div>
+</div>
+</div>
+</div>
+<!-- 2015 -->
+<div class="relative group" data-year="2015">
+<div class="flex items-center justify-center mb-8">
+<div class="w-20 h-20 bg-white rounded-full border-4 border-primary flex items-center justify-center z-10 shadow-xl transform group-hover:scale-110 transition-transform duration-300">
+<span class="text-primary font-bold">2015</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+<div class="order-2 md:order-1">
+<div class="bg-white rounded-xl shadow-lg p-6 transform hover:-translate-y-2 transition-transform duration-300">
+<div class="flex items-center mb-4">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+<div class="w-5 h-5 flex items-center justify-center text-primary">
+<i class="ri-flight-takeoff-line"></i>
+</div>
+</div>
+<h4 class="text-xl font-semibold text-gray-900">International Expansion</h4>
+</div>
+<p class="text-gray-600">
+Completed our first international project in Saudi Arabia for Farabi Petrochemicals, marking our entry into the global market.
+</p>
+</div>
+</div>
+<div class="order-1 md:order-2">
+<img src="https://readdy.ai/api/search-image?query=modern%2520petrochemical%2520plant%2520in%2520Saudi%2520Arabia%2520at%2520sunset%2C%2520industrial%2520facility%2520with%2520dramatic%2520lighting%2520and%2520professional%2520photography&width=400&height=300&seq=journey5&orientation=landscape"
+alt="International Expansion"
+class="w-full h-64 object-cover rounded-xl shadow-lg">
+</div>
+</div>
+</div>
+<!-- 2024 -->
+<div class="relative group" data-year="2024">
+<div class="flex items-center justify-center mb-8">
+<div class="w-20 h-20 bg-white rounded-full border-4 border-primary flex items-center justify-center z-10 shadow-xl transform group-hover:scale-110 transition-transform duration-300">
+<span class="text-primary font-bold">2024</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+<div class="order-2">
+<img src="https://readdy.ai/api/search-image?query=professional%20industrial%20coating%20team%20working%20on%20large%20industrial%20equipment%2C%20wearing%20safety%20gear%2C%20industrial%20facility%20background%20with%20modern%20coating%20equipment%20and%20technology%2C%20dramatic%20professional%20lighting%20showing%20expertise%20and%20precision&width=400&height=300&seq=journey6&orientation=landscape"
+alt="Industry Leadership"
+class="w-full h-64 object-cover rounded-xl shadow-lg">
+</div>
+<div class="order-1">
+<div class="bg-white rounded-xl shadow-lg p-6 transform hover:-translate-y-2 transition-transform duration-300">
+<div class="flex items-center mb-4">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+<div class="w-5 h-5 flex items-center justify-center text-primary">
+<i class="ri-star-line"></i>
+</div>
+</div>
+<h4 class="text-xl font-semibold text-gray-900">Industry Leadership</h4>
+</div>
+<p class="text-gray-600">
+Today, with over 600 professionals, 6 offices across India, and recognition as the "Topmost Painting Contractor of India," we continue to lead the industry in innovation and excellence.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Expertise Section -->
+<section class="py-20 bg-white relative z-10">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1">
+<div class="relative mb-8">
+<div class="absolute -top-4 -left-4 w-24 h-24 bg-primary/10 rounded-lg"></div>
+<h2 class="text-sm font-semibold text-secondary uppercase tracking-wider mb-2 relative">Our Expertise</h2>
+<h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 relative">Specialized Knowledge, Proven Results</h3>
+</div>
+<p class="text-gray-700 mb-8">
+With over 30 years of industry experience, our team of NACE and SSPC certified professionals brings unparalleled expertise to every project. We specialize in:
+</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+<div class="bg-gray-50 rounded-lg p-4">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mb-3">
+<div class="w-5 h-5 flex items-center justify-center text-primary">
+<i class="ri-paint-brush-line"></i>
+</div>
+</div>
+<h4 class="font-semibold text-gray-900 mb-1">Industrial Coatings</h4>
+<p class="text-gray-600 text-sm">
+Advanced coating systems for extreme environments
+</p>
+</div>
+<div class="bg-gray-50 rounded-lg p-4">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mb-3">
+<div class="w-5 h-5 flex items-center justify-center text-primary">
+<i class="ri-flask-line"></i>
+</div>
+</div>
+<h4 class="font-semibold text-gray-900 mb-1">Chemical Resistance</h4>
+<p class="text-gray-600 text-sm">
+Specialized solutions for chemical exposure
+</p>
+</div>
+<div class="bg-gray-50 rounded-lg p-4">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mb-3">
+<div class="w-5 h-5 flex items-center justify-center text-primary">
+<i class="ri-fire-line"></i>
+</div>
+</div>
+<h4 class="font-semibold text-gray-900 mb-1">High Temperature</h4>
+<p class="text-gray-600 text-sm">
+Coatings that withstand extreme heat
+</p>
+</div>
+<div class="bg-gray-50 rounded-lg p-4">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mb-3">
+<div class="w-5 h-5 flex items-center justify-center text-primary">
+<i class="ri-file-search-line"></i>
+</div>
+</div>
+<h4 class="font-semibold text-gray-900 mb-1">Corrosion Analysis</h4>
+<p class="text-gray-600 text-sm">
+Expert assessment and prevention strategies
+</p>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2 relative">
+<div class="absolute -top-4 -right-4 w-32 h-32 bg-secondary/10 rounded-lg"></div>
+<div class="relative">
+<img src="https://static.readdy.ai/image/b262a2b76905a2198fef3b5c4022af50/d04a9719c9305c46660adcaf3ff8d79d.jfif"
+alt="Technical Expertise in Action"
+class="rounded-xl shadow-xl w-full h-auto object-cover">
+<div class="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/10 rounded-lg -z-10"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Awards & Recognition Section -->
+<section class="py-20 bg-white relative z-10">
+<div class="container mx-auto px-4">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="text-sm font-semibold text-secondary uppercase tracking-wider mb-2">Recognition</h2>
+<h3 class="text-3xl md:text-4xl font-agrandir font-bold text-gray-900 mb-4">Awards & Achievements</h3>
+<p class="text-gray-600">
+Our commitment to excellence has been recognized through numerous industry awards and certifications.
+</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="bg-white rounded-lg shadow-lg overflow-hidden">
+<div class="h-64 bg-gray-200 relative">
+<img src="https://static.readdy.ai/image/b262a2b76905a2198fef3b5c4022af50/933bd2c9d79d6e23a9624dfc39264332.jfif"
+alt="Industry Recognition"
+class="w-full h-full object-cover object-top">
+<div class="absolute top-4 left-4 bg-primary text-white text-sm font-medium rounded-full px-3 py-1">
+Recognition
+</div>
+</div>
+<div class="p-6">
+<h4 class="text-2xl font-bold text-gray-900 mb-2">Industry Leadership Awards</h4>
+<div class="mb-6">
+<ul class="space-y-3">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-secondary mr-2 mt-1">
+<i class="ri-award-line"></i>
+</div>
+<div>
+<span class="text-gray-900 font-medium">Topmost Painting Contractor of India (2023)</span>
+<p class="text-gray-600 text-sm">Recognized for technical excellence and industry leadership</p>
+</div>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-secondary mr-2 mt-1">
+<i class="ri-award-line"></i>
+</div>
+<div>
+<span class="text-gray-900 font-medium">Excellence in Industrial Safety (2022)</span>
+<p class="text-gray-600 text-sm">For outstanding safety practices across high-risk projects</p>
+</div>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-secondary mr-2 mt-1">
+<i class="ri-award-line"></i>
+</div>
+<div>
+<span class="text-gray-900 font-medium">Best Corrosion Prevention Solutions Provider (2021)</span>
+<p class="text-gray-600 text-sm">For innovative approaches to complex corrosion challenges</p>
+</div>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-secondary mr-2 mt-1">
+<i class="ri-award-line"></i>
+</div>
+<div>
+<span class="text-gray-900 font-medium">Innovation in Industrial Coatings (2020)</span>
+<p class="text-gray-600 text-sm">For pioneering new coating technologies for extreme environments</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-lg overflow-hidden">
+<div class="h-64 bg-gray-200 relative">
+<img src="https://readdy.ai/api/search-image?query=professional%2520certification%2520and%2520quality%2520standards%2520display%2520with%2520ISO%2520and%2520industry%2520certification%2520logos%2520prominently%2520featured.%2520The%2520display%2520includes%2520framed%2520certificates%2520and%2520quality%2520management%2520symbols.%2520Professional%2520corporate%2520setting%2520with%2520high-quality%2520finish&width=600&height=350&seq=cert1&orientation=landscape"
+alt="Certifications & Standards"
+class="w-full h-full object-cover object-top">
+<div class="absolute top-4 left-4 bg-secondary text-white text-sm font-medium rounded-full px-3 py-1">
+Certifications
+</div>
+</div>
+<div class="p-6">
+<h4 class="text-2xl font-bold text-gray-900 mb-2">Certifications & Standards</h4>
+<div class="mb-6">
+<ul class="space-y-3">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-1">
+<i class="ri-check-line"></i>
+</div>
+<div>
+<span class="text-gray-900 font-medium">ISO 9001:2015</span>
+<p class="text-gray-600 text-sm">Quality Management System certification</p>
+</div>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-1">
+<i class="ri-check-line"></i>
+</div>
+<div>
+<span class="text-gray-900 font-medium">ISO 14001:2015</span>
+<p class="text-gray-600 text-sm">Environmental Management System certification</p>
+</div>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-1">
+<i class="ri-check-line"></i>
+</div>
+<div>
+<span class="text-gray-900 font-medium">ISO 45001:2018</span>
+<p class="text-gray-600 text-sm">Occupational Health and Safety Management System</p>
+</div>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-1">
+<i class="ri-check-line"></i>
+</div>
+<div>
+<span class="text-gray-900 font-medium">NACE International Membership</span>
+<p class="text-gray-600 text-sm">Active participation in corrosion prevention standards</p>
+</div>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-1">
+<i class="ri-check-line"></i>
+</div>
+<div>
+<span class="text-gray-900 font-medium">SSPC Organizational Membership</span>
+<p class="text-gray-600 text-sm">Adherence to Society for Protective Coatings standards</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-20 bg-primary relative z-10">
+<div class="container mx-auto px-4 text-center">
+<h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Partner with Our Expert Team?</h2>
+<p class="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+Contact us today to discuss how our experienced team can help protect your industrial assets and infrastructure with precision and expertise.
+</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a href="Contact-Us (3).html" data-readdy="true" class="bg-white text-primary rounded-button px-8 py-3 font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">
+Contact Us Today
+</a>
+<a href="Services-Offered-Page (1).html" data-readdy="true" class="bg-transparent border-2 border-white text-white rounded-button px-8 py-3 font-medium hover:bg-white/10 transition-colors whitespace-nowrap">
+Explore Our Services
+</a>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<!-- Footer -->
+<footer class="bg-gray-900 text-white pt-16 pb-8 relative z-10">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+<div>
+<a href="MAIN-HOMEPAGE (2).html" data-readdy="true" class="text-2xl font-bold font-inter text-white mb-4 inline-block tracking-wide">DR India</a>
+<p class="text-gray-400 mb-6">
+Protecting industrial infrastructure with precision since 1994. NACE certified, ISO 9001/14001/45001 compliant.
+</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-linkedin-fill"></i>
+</div>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-facebook-fill"></i>
+</div>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-twitter-x-fill"></i>
+</div>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-instagram-fill"></i>
+</div>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-4">Quick Links</h4>
+<ul class="space-y-3">
+<li><a href="MAIN-HOMEPAGE (2).html" data-readdy="true" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+<li><a href="About-Our-Expert-Team (5).html" data-readdy="true" class="text-white transition-colors">About Us</a></li>
+<li><a href="Services-Offered-Page (1).html" data-readdy="true" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+<li><a href="MAIN-HOMEPAGE (2).html#projects" class="text-gray-400 hover:text-white transition-colors">Projects</a></li>
+<li><a href="Certifications-Showcase-Page (2).html" class="text-gray-400 hover:text-white transition-colors">Certifications</a></li>
+<li><a href="MAIN-HOMEPAGE (2).html#clients" class="text-gray-400 hover:text-white transition-colors">Clients</a></li>
+<li><a href="Contact-Us (3).html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-4">Our Services</h4>
+<ul class="space-y-3">
+<li><a href="Services-Offered-Page (1).html" class="text-gray-400 hover:text-white transition-colors">Anti-Corrosive Painting</a></li>
+<li><a href="Services-Offered-Page (1).html" class="text-gray-400 hover:text-white transition-colors">Wet-Abrasive Blasting</a></li>
+<li><a href="Services-Offered-Page (1).html" class="text-gray-400 hover:text-white transition-colors">High-Performance Coating</a></li>
+<li><a href="Services-Offered-Page (1).html" class="text-gray-400 hover:text-white transition-colors">Acid Proof Lining</a></li>
+<li><a href="Services-Offered-Page (1).html" class="text-gray-400 hover:text-white transition-colors">Floor Coatings</a></li>
+<li><a href="Services-Offered-Page (1).html" class="text-gray-400 hover:text-white transition-colors">Metallizing (TSA)</a></li>
+<li><a href="Services-Offered-Page (1).html" class="text-gray-400 hover:text-white transition-colors">Corrosion Audits</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-500 text-sm mb-4 md:mb-0">
+&copy; 2025 The dR India. All rights reserved.
+</p>
+<div class="flex space-x-4">
+<a href="#" class="text-gray-500 text-sm hover:text-white transition-colors">Privacy Policy</a>
+<a href="#" class="text-gray-500 text-sm hover:text-white transition-colors">Terms of Service</a>
+<a href="#" class="text-gray-500 text-sm hover:text-white transition-colors">Cookie Policy</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- Scripts -->
+<script id="mobile-menu-script">
+document.addEventListener('DOMContentLoaded', function() {
+try {
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+if (mobileMenuButton && mobileMenu) {
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+});
+const mobileLinks = mobileMenu.querySelectorAll('a');
+mobileLinks.forEach(link => {
+link.addEventListener('click', function() {
+mobileMenu.classList.add('hidden');
+});
+});
+}
+} catch (error) {
+console.error('Mobile menu initialization error:', error);
+}
+});
+</script>
+<script id="animation-script">
+document.addEventListener('DOMContentLoaded', function() {
+try {
+// Floating Elements Animation
+const floatingElements = document.querySelectorAll('.floating-element');
+let lastScrollY = window.scrollY;
+let scrollTimeout;
+const handleScroll = () => {
+if (scrollTimeout) {
+window.cancelAnimationFrame(scrollTimeout);
+}
+scrollTimeout = window.requestAnimationFrame(() => {
+try {
+const currentScrollY = window.scrollY;
+const scrollDirection = currentScrollY > lastScrollY ? 1 : -1;
+floatingElements.forEach(element => {
+if (element && element.style) {
+const currentTransform = element.style.transform || 'translateY(0)';
+const currentY = parseFloat(currentTransform.match(/translateY\(([-\d.]+)px\)/) || [0, 0])[1];
+const newY = Math.max(-100, Math.min(100, currentY + (scrollDirection * 2)));
+element.style.transform = `translateY(${newY}px)`;
+}
+});
+lastScrollY = currentScrollY;
+} catch (error) {
+console.error('Scroll animation error:', error);
+}
+});
+};
+window.addEventListener('scroll', handleScroll, { passive: true });
+// Fade In Animation
+const animatedElements = document.querySelectorAll('.animate-fadeInUp');
+if ('IntersectionObserver' in window) {
+const fadeObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting && entry.target) {
+entry.target.style.opacity = '1';
+fadeObserver.unobserve(entry.target);
+}
+});
+}, {
+threshold: 0.1,
+rootMargin: '0px'
+});
+animatedElements.forEach(element => {
+if (element) {
+fadeObserver.observe(element);
+}
+});
+} else {
+animatedElements.forEach(element => {
+if (element) {
+element.style.opacity = '1';
+}
+});
+}
+// Value Cards Animation
+const valueCards = document.querySelectorAll('.value-card');
+valueCards.forEach(card => {
+if (card) {
+const handleEnter = () => {
+card.classList.add('transform', 'translate-y-[-5px]', 'shadow-xl');
+};
+const handleLeave = () => {
+card.classList.remove('transform', 'translate-y-[-5px]', 'shadow-xl');
+};
+card.addEventListener('mouseenter', handleEnter);
+card.addEventListener('mouseleave', handleLeave);
+}
+});
+// Timeline Animation
+const timelineItems = document.querySelectorAll('[data-year]');
+if ('IntersectionObserver' in window) {
+const timelineObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting && entry.target) {
+entry.target.classList.add('opacity-100', 'translate-y-0');
+entry.target.classList.remove('opacity-0', 'translate-y-8');
+timelineObserver.unobserve(entry.target);
+}
+});
+}, {
+threshold: 0.2,
+rootMargin: '50px'
+});
+timelineItems.forEach(item => {
+if (item) {
+item.classList.add('opacity-0', 'translate-y-8', 'transition-all', 'duration-700', 'ease-out');
+timelineObserver.observe(item);
+}
+});
+} else {
+timelineItems.forEach(item => {
+if (item) {
+item.classList.add('opacity-100', 'translate-y-0');
+}
+});
+}
+} catch (error) {
+console.error('Animation initialization error:', error);
+}
+});
+</script>
+</body>
+</html>
