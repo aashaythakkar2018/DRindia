@@ -1103,7 +1103,7 @@ Successfully executed an international project for Farabi Petrochemicals, delive
 </div>
 </section>
 <!-- Code of Conduct Section -->
-<section id="conduct" class="py-20 bg-gray-50 relative overflow-visible">
+<section id="conduct" class="pt-20 pb-36 bg-gray-50 relative z-30 overflow-visible">
 <div class="container mx-auto px-4 relative z-10">
 <div class="text-center max-w-3xl mx-auto mb-16">
 <h2 class="text-sm font-bold text-secondary uppercase tracking-wider mb-2 opacity-0 transform translate-y-4 transition-all duration-700 ease-out" data-animate>Our Commitment</h2>
@@ -1442,7 +1442,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!isActive) {
         node.classList.add('active');
-        node.querySelector('.node-card').classList.remove('hidden');
+        const card = node.querySelector('.node-card');
+        card.classList.remove('hidden');
         node.querySelector('.node-circle').classList.remove('bg-white', 'text-primary');
         node.querySelector('.node-circle').classList.add('bg-primary', 'text-white', 'border-secondary');
         autoRotate = false;
@@ -1452,6 +1453,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const targetAngle = 90 - (idx / nodes.length) * 360;
         rotationAngle = (targetAngle + 360) % 360;
         updatePositions();
+
+        // Smoothly scroll the card into view if it goes outside the viewport
+        setTimeout(() => {
+          card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 150);
       } else {
         autoRotate = true;
         activeNodeIndex = null;
@@ -1490,7 +1496,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
 </section>
 <!-- Clients Section -->
-<section id="clients" class="py-20 bg-white">
+<section id="clients" class="py-20 bg-white relative z-10">
 <div class="container mx-auto px-4">
 <div class="text-center max-w-3xl mx-auto mb-16">
 <h2 class="text-sm font-bold text-secondary uppercase tracking-wider mb-2">Our Network</h2>
