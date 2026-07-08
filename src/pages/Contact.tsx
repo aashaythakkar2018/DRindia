@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Phone, Mail, Globe, MapPin, Send, CheckCircle2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -37,27 +39,37 @@ export default function Contact() {
       <section className="relative py-24 bg-[#1A3E5F] text-white overflow-hidden text-center">
         <div className="absolute inset-0 bg-[url('https://readdy.ai/api/search-image?query=industrial%20office%20customer%20service&width=1440&height=500')] bg-cover bg-center opacity-20"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">Contact Us</h1>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Get in touch with our engineering team to discuss your project requirements, request a quote, or schedule audits.
-          </p>
+          <ScrollReveal y={20} duration={0.6}>
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">Contact Us</h1>
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+              Get in touch with our engineering team to discuss your project requirements, request a quote, or schedule audits.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Main Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
             {/* Contact Form */}
-            <div className="bg-white p-8 md:p-12 rounded-2xl border border-gray-100 shadow-xl relative">
+            <ScrollReveal x={-30} duration={0.6} className="bg-white p-8 md:p-12 rounded-2xl border border-gray-100 shadow-xl relative w-full h-full">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
               
-              {submitted && (
-                <div className="mb-6 p-4 bg-green-50 text-green-700 rounded-xl border border-green-200 flex items-center">
-                  <CheckCircle2 className="w-5 h-5 mr-3 flex-shrink-0" />
-                  <span>Thank you for your message! Our team will contact you shortly.</span>
-                </div>
-              )}
+              <AnimatePresence>
+                {submitted && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0, y: -10 }}
+                    animate={{ opacity: 1, height: "auto", y: 0 }}
+                    exit={{ opacity: 0, height: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                    className="mb-6 p-4 bg-green-50 text-green-700 rounded-xl border border-green-200 flex items-center overflow-hidden"
+                  >
+                    <CheckCircle2 className="w-5 h-5 mr-3 flex-shrink-0" />
+                    <span>Thank you for your message! Our team will contact you shortly.</span>
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -138,10 +150,10 @@ export default function Contact() {
                   <Send className="w-4 h-4 ml-2 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </button>
               </form>
-            </div>
+            </ScrollReveal>
 
             {/* Contact Details */}
-            <div className="flex flex-col justify-between">
+            <ScrollReveal x={30} duration={0.6} delay={0.1} className="flex flex-col justify-between w-full h-full">
               <div>
                 <h3 className="text-3xl font-black text-gray-900 mb-8">Get In Touch</h3>
                 
@@ -198,17 +210,18 @@ export default function Contact() {
               </div>
 
               {/* Map embed placeholder */}
-              <div className="mt-12 bg-gray-50 border border-gray-100 rounded-2xl h-48 flex items-center justify-center overflow-hidden relative shadow-inner">
+              <div className="mt-12 bg-gray-55 border border-gray-100 rounded-2xl h-48 flex items-center justify-center overflow-hidden relative shadow-inner">
                 <div className="absolute inset-0 bg-[#E8F5FF] opacity-30 bg-[radial-gradient(#1A3E5F_1px,transparent_1px)] [background-size:16px_16px]"></div>
                 <span className="text-sm text-gray-500 font-bold relative z-10 flex items-center">
                   <MapPin className="w-4 h-4 mr-2 text-[#C1440E]" />
                   Ahmedabad GIDC, Vatva
                 </span>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
     </div>
   );
+
 }

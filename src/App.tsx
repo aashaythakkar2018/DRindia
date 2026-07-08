@@ -1,5 +1,6 @@
 import { HashRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Services from "@/pages/Services";
@@ -73,17 +74,25 @@ function Layout({ children }: { children: React.ReactNode }) {
         </div>
 
         {/* Mobile Menu Overlay */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-100 shadow-lg py-4 px-6 animate-fade-in">
-            <nav className="flex flex-col space-y-4">
-              <Link to="/" className="text-gray-800 font-semibold py-2 hover:text-[#C1440E]" onClick={toggleMobileMenu}>Home</Link>
-              <Link to="/about" className="text-gray-800 font-semibold py-2 hover:text-[#C1440E]" onClick={toggleMobileMenu}>About Us</Link>
-              <Link to="/services" className="text-gray-800 font-semibold py-2 hover:text-[#C1440E]" onClick={toggleMobileMenu}>Services</Link>
-              <Link to="/certifications" className="text-gray-800 font-semibold py-2 hover:text-[#C1440E]" onClick={toggleMobileMenu}>Awards & Achievements</Link>
-              <Link to="/contact" className="text-gray-800 font-semibold py-2 hover:text-[#C1440E]" onClick={toggleMobileMenu}>Contact</Link>
-            </nav>
-          </div>
-        )}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="lg:hidden bg-white border-t border-gray-100 shadow-lg px-6 overflow-hidden"
+            >
+              <nav className="flex flex-col space-y-4 py-4">
+                <Link to="/" className="text-gray-800 font-semibold py-2 hover:text-[#C1440E]" onClick={toggleMobileMenu}>Home</Link>
+                <Link to="/about" className="text-gray-800 font-semibold py-2 hover:text-[#C1440E]" onClick={toggleMobileMenu}>About Us</Link>
+                <Link to="/services" className="text-gray-800 font-semibold py-2 hover:text-[#C1440E]" onClick={toggleMobileMenu}>Services</Link>
+                <Link to="/certifications" className="text-gray-800 font-semibold py-2 hover:text-[#C1440E]" onClick={toggleMobileMenu}>Awards & Achievements</Link>
+                <Link to="/contact" className="text-gray-800 font-semibold py-2 hover:text-[#C1440E]" onClick={toggleMobileMenu}>Contact</Link>
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
 
       {/* Main Content Body */}
@@ -157,15 +166,62 @@ function Layout({ children }: { children: React.ReactNode }) {
       </footer>
 
       {/* Floating Scroll to Top button */}
-      {showScrollTop && (
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 right-6 w-12 h-12 bg-[#C1440E] hover:bg-[#C1440E]/90 text-white rounded-full flex items-center justify-center shadow-lg transition-all z-50 transform hover:-translate-y-1"
-        >
-          <ArrowUp className="w-6 h-6" />
-        </button>
-      )}
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="fixed bottom-6 right-6 w-12 h-12 bg-[#C1440E] hover:bg-[#C1440E]/90 text-white rounded-full flex items-center justify-center shadow-lg z-50 hover:-translate-y-1 transform transition-transform"
+          >
+            <ArrowUp className="w-6 h-6" />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
+  );
+}
+
+const pageVariants = {
+  initial: { opacity: 0, y: 12 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -12 }
+};
+
+const pageTransition = {
+  type: "tween" as const,
+  ease: "easeOut" as const,
+  duration: 0.25
+};
+
+function PageWrapper({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      variants={pageVariants}
+      transition={pageTransition}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+function AnimatedRoutes() {
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
+        <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
+        <Route path="/services" element={<PageWrapper><Services /></PageWrapper>} />
+        <Route path="/certifications" element={<PageWrapper><Certifications /></PageWrapper>} />
+        <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
+      </Routes>
+    </AnimatePresence>
   );
 }
 
@@ -174,13 +230,7 @@ export default function App() {
     <Router>
       <ScrollToTop />
       <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/certifications" element={<Certifications />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+        <AnimatedRoutes />
       </Layout>
     </Router>
   );
